@@ -16,6 +16,7 @@ import { ForumComponent } from './forum/forum.component';
 import { ChatroomComponent } from './chatroom/chatroom.component';
 import { RepairComponent } from './repair/repair.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { UserLoginComponent } from './user-login/user-login.component';
 
 registerLocaleData(zh);
 
@@ -27,7 +28,8 @@ registerLocaleData(zh);
     ForumComponent,
     ChatroomComponent,
     RepairComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
