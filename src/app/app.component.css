@@ -80,14 +80,9 @@ nz-content {
   height: 100vw;
 }
 
-.app-header button{
+.login{
   position: relative;
   float: right;
-  margin: 15px 20px 0 0;
-}
-
-.login{
-  height: 100%;
-  width: 100%;
+  margin: 0px 20px 0 0 auto;
 }
 

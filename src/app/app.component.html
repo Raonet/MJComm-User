@@ -61,16 +61,9 @@
                [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
             ></i>
         </span>
-        <span>
-            <button nz-button nzShape="round" (click)="showModal()">登录/注册</button>
-            <nz-modal [(nzVisible)]="isVisible" nzTitle="登录/注册" (nzOnCancel)="handleCancel()">
-              <div class="login">
-                <app-user-login></app-user-login>
-              </div>
-              <div *nzModalFooter>
-                <button nz-button nzType="primary" (click)="handleOk()">确定</button>
-              </div>
-            </nz-modal>
+        <span class="login">
+          <app-user-login></app-user-login>
+          <app-register></app-register>
         </span>
       </div>
     </nz-header>

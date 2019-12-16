@@ -1,0 +1,140 @@
+<button nz-button nzShape="round" (click)="showModal()">注册</button>
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="注册"
+  (nzOnCancel)="handleCancel()"
+>
+  <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email"
+        >邮箱</nz-form-label
+      >
+      <nz-form-control
+        [nzSm]="14"
+        [nzXs]="24"
+        nzErrorTip="请输入你的邮箱！"
+      >
+        <input nz-input formControlName="email" id="email" placeholder="邮箱" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired
+        >密码</nz-form-label
+      >
+      <nz-form-control
+        [nzSm]="14"
+        [nzXs]="24"
+        nzErrorTip="请输入你的密码！"
+      >
+        <input
+          nz-input
+          type="password"
+          id="password"
+          formControlName="password"
+          placeholder="密码"
+          (ngModelChange)="updateConfirmValidator()"
+        />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="checkPassword" nzRequired
+        >确认密码</nz-form-label
+      >
+      <nz-form-control [nzSm]="14" [nzXs]="24" [nzErrorTip]="errorTpl">
+        <input
+          nz-input
+          type="password"
+          formControlName="checkPassword"
+          id="checkPassword"
+          placeholder="再次输入密码"
+        />
+        <ng-template #errorTpl let-control>
+          <ng-container *ngIf="control.hasError('required')">
+            请再次输入密码以确认！
+          </ng-container>
+          <ng-container *ngIf="control.hasError('confirm')">
+            两次输入的密码不相同！
+          </ng-container>
+        </ng-template>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="nickname" nzRequired>
+        <span>
+          网名
+          <i
+            nz-icon
+            nz-tooltip
+            nzTitle="你想让别人在网络上如何称呼你呢？"
+            nzType="question-circle"
+            nzTheme="outline"
+          ></i>
+        </span>
+      </nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="请输入你的网名!">
+        <input
+          nz-input
+          id="nickname"
+          formControlName="nickname"
+          placeholder="网名"
+        />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phoneNumber" nzRequired
+        >电话号码</nz-form-label
+      >
+      <nz-form-control
+        [nzSm]="14"
+        [nzXs]="24"
+        [nzValidateStatus]="validateForm.controls['phoneNumber']"
+        nzErrorTip="请输入你的电话号码!"
+      >
+        <nz-input-group [nzAddOnBefore]="addOnBeforeTemplate">
+          <ng-template #addOnBeforeTemplate>
+            <nz-select formControlName="phoneNumberPrefix" class="phone-select">
+              <nz-option nzLabel="+86" nzValue="+86"></nz-option>
+              <nz-option nzLabel="+87" nzValue="+87"></nz-option>
+            </nz-select>
+          </ng-template>
+          <input
+            formControlName="phoneNumber"
+            id="'phoneNumber'"
+            nz-input
+            placeholder="电话"
+          />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phoneNumber" nzRequired
+        >头像</nz-form-label
+      >
+      <nz-upload
+        class="avatar-uploader"
+        nzAction="#"
+        nzName="avatar"
+        nzListType="picture-card"
+        [nzShowUploadList]="false"
+        [nzBeforeUpload]="beforeUpload"
+        (nzChange)="handleChange($event)"
+      >
+        <ng-container *ngIf="!avatarUrl">
+          <i
+            class="upload-icon"
+            nz-icon
+            [nzType]="loading ? 'loading' : 'plus'"
+          ></i>
+          <div class="ant-upload-text">上传</div>
+        </ng-container>
+        <img *ngIf="avatarUrl" [src]="avatarUrl" class="avatar" />
+      </nz-upload>
+    </nz-form-item>
+    <nz-form-item nz-row class="register-area">
+      <nz-form-control [nzSpan]="20" [nzOffset]="20">
+        <button nz-button nzType="primary">注册</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+  <div *nzModalFooter></div>
+</nz-modal>
