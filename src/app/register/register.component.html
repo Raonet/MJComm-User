@@ -85,7 +85,7 @@
         >电话号码</nz-form-label
       >
       <nz-form-control
-        [nzSm]="14"
+        [nzSm]="11"
         [nzXs]="24"
         [nzValidateStatus]="validateForm.controls['phoneNumber']"
         nzErrorTip="请输入你的电话号码!"
@@ -106,33 +106,9 @@
         </nz-input-group>
       </nz-form-control>
     </nz-form-item>
-    <nz-form-item>
-      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phoneNumber" nzRequired
-        >头像</nz-form-label
-      >
-      <nz-upload
-        class="avatar-uploader"
-        nzAction="#"
-        nzName="avatar"
-        nzListType="picture-card"
-        [nzShowUploadList]="false"
-        [nzBeforeUpload]="beforeUpload"
-        (nzChange)="handleChange($event)"
-      >
-        <ng-container *ngIf="!avatarUrl">
-          <i
-            class="upload-icon"
-            nz-icon
-            [nzType]="loading ? 'loading' : 'plus'"
-          ></i>
-          <div class="ant-upload-text">上传</div>
-        </ng-container>
-        <img *ngIf="avatarUrl" [src]="avatarUrl" class="avatar" />
-      </nz-upload>
-    </nz-form-item>
     <nz-form-item nz-row class="register-area">
       <nz-form-control [nzSpan]="20" [nzOffset]="20">
-        <button nz-button nzType="primary">注册</button>
+        <button nz-button nzType="primary" (click)="registerUser()">注册</button>
       </nz-form-control>
     </nz-form-item>
   </form>
