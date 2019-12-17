@@ -1,18 +1,12 @@
 .userdetail{
-  width: 1000px;
-  height: 800px;
-  margin: 0 auto;
+  background-color: #f6f6f6;
+  color: #80BD01;
+  padding: 10px;
+  margin: 0 10px 0 0;
 }
-.userdetail .detail{
-  margin-right: 60px;
-  height: 600px;
-  width: 60%;
-  background-color: aquamarine;
-  display: inline-block;
-}
-.userdetail .avatr{
-  height: 600px;
-  width: 30%;
-  background-color: #666;
-  display: inline-block;
+.userindex {
+  background-color: #f6f6f6;
+  color: #80BD01;
+  padding: 10px;
+  margin: 0 10px 0 0;
 }

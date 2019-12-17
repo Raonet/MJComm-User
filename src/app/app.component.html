@@ -62,8 +62,19 @@
             ></i>
         </span>
         <span class="login">
-          <app-user-login></app-user-login>
-          <app-register></app-register>
+          <app-user-login (isLogin)="onLogin($event)" *ngIf="isLogin"></app-user-login>
+          <app-register *ngIf="isLogin"></app-register>
+          <div class="avater" *ngIf="!isLogin">
+            <a nz-dropdown [nzDropdownMenu]="menu">
+              <img [src]="avaterimg" routerLink="/userdetail" />
+            </a>
+            <nz-dropdown-menu #menu="nzDropdownMenu" >
+              <ul nz-menu nzSelectable>
+                <li nz-menu-item routerLink="/userdetail">我的主页</li>
+                <li nz-menu-item (click)="outLogin()" routerLink="/">退出登录</li>
+              </ul>
+            </nz-dropdown-menu>
+          </div>
         </span>
       </div>
     </nz-header>

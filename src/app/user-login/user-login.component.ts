@@ -1,18 +1,22 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
+import { NzMessageService } from 'ng-zorro-antd/message';
 import { LoginHttpService } from '../login-http.service';
+
 @Component({
   selector: 'app-user-login',
   templateUrl: './user-login.component.html',
   styleUrls: ['./user-login.component.css']
 })
 export class UserLoginComponent implements OnInit {
+  @Output() isLogin = new EventEmitter<boolean>();
   validateForm: FormGroup;
   passwordVisible = false;
   password: string;
   isVisible = false;
-  constructor(private fb: FormBuilder, private loginService: LoginHttpService) {}
-
+  // tslint:disable-next-line: max-line-length
+  constructor(private fb: FormBuilder, private loginService: LoginHttpService, private cookies: CookieService, private msg: NzMessageService) {}
   ngOnInit(): void {
     this.validateForm = this.fb.group({
       userName: [null, [Validators.required]],
@@ -20,7 +24,6 @@ export class UserLoginComponent implements OnInit {
       remember: [true]
     });
   }
-
   showModal(): void {
     this.isVisible = true;
   }
@@ -41,12 +44,17 @@ export class UserLoginComponent implements OnInit {
     }
   }
 
-  loginUser(): void {
-    console.log(this.validateForm.controls.userName.value);
-    console.log(this.validateForm.controls.password.value);
+  async loginUser(): Promise<void> {
     // tslint:disable-next-line: max-line-length
-    const userdata = this.loginService.postLoginUser(this.validateForm.controls.userName.value, this.validateForm.controls.password.value).toPromise().then(res => {
-      return res; });
-    this.isVisible = false;
+    await this.loginService.postLoginUser(this.validateForm.controls.userName.value, this.validateForm.controls.password.value);
+    console.log(this.loginService.userLoginData);
+    // tslint:disable-next-line: no-conditional-assignment
+    if (this.loginService.userLoginData.status === 0) {
+      this.msg.info('帐号或密码错误，登录失败！');
+    } else {
+      this.msg.info('登录成功！');
+      this.isVisible = false;
+      this.isLogin.emit();
+    }
   }
 }

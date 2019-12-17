@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginHttpService } from '../login-http.service';
 
 @Component({
   selector: 'app-mydetail',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MydetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginService: LoginHttpService) { }
 
   ngOnInit() {
   }

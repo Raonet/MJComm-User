@@ -37,6 +37,7 @@ export class RegisterComponent implements OnInit {
     e.preventDefault();
   }
 
+  // tslint:disable-next-line: max-line-length
   constructor(private fb: FormBuilder, private msg: NzMessageService, private loginService: LoginHttpService) {}
 
   ngOnInit(): void {
@@ -63,12 +64,14 @@ export class RegisterComponent implements OnInit {
     this.isVisible = false;
   }
 // 注册方法
-  registerUser(): void {
+  async registerUser(): Promise<void> {
     // tslint:disable-next-line: max-line-length
-    const createdata = this.loginService.postRegister(this.validateForm.controls.email.value, this.validateForm.controls.password.value, this.validateForm.controls.nickname.value, this.validateForm.controls.phoneNumber.value).toPromise().then(res => {
-      return res;
-    });
-    console.log(createdata);
+    await this.loginService.postRegister(this.validateForm.controls.email.value, this.validateForm.controls.password.value, this.validateForm.controls.nickname.value, this.validateForm.controls.phoneNumber.value);
+    if (this.loginService.createData.status === 0 ) {
+      this.msg.info('该邮箱帐号已被注册，请点击登录找回密码或换个邮箱试试！');
+      return ;
+    }
+    this.msg.info('注册成功!');
     this.isVisible = false;
   }
 }
