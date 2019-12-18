@@ -27,11 +27,10 @@ export class AppComponent {
     }
     if (this.loginService.userLoginData !== undefined) {
       if (this.loginService.userLoginData.status !== 0 ) {
-        this.avaterimg = this.loginService.userLoginData.avatar;
+      this.avaterimg = this.loginService.userLoginData.avatar;
       }
     } else {
       this.avaterimg = this.cookies.get('userAvater');
     }
-    console.log(this.avaterimg);
   }
 }

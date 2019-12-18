@@ -10,3 +10,34 @@
   padding: 10px;
   margin: 0 10px 0 0;
 }
+.userindex-2 {
+  background-color: #f6f6f6;
+  color: #80BD01;
+  padding: 10px;
+  margin: 10px 10px 0 0;
+}
+.usershow {
+  margin: 20px 10px 0 0;
+  background-color: #f6f6f6;
+}
+.usershow img {
+  width: 80px;
+  height: 80px;
+}
+.usershow .username{
+  font-weight: bold;
+  margin: 0 0 0 30px;
+  font-size: 18px;
+}
+.createtime{
+  margin: 20px 10px 0 0;
+  background-color: #f6f6f6;
+  font-style: italic;
+}
+.usershow .userdetail{
+  font-weight: bold;
+  margin: 0 0 0 30px;
+  font-size: 14px;
+}
+
+

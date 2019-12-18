@@ -1,8 +1,20 @@
 <div nz-row>
-  <div nz-col nzSpan="12">
+  <div nz-col nzSpan="24">
     <div class="userindex">个人主页</div>
-  </div>
-  <div nz-col nzSpan="12">
-    <div class="userdetail">个人详情</div>
+    <div class="usershow">
+      <img [src]="useravater" alt="">
+      <div class="username">{{username}}</div>
+    </div>
+    <div class="userindex-2">个人简介</div>
+    <div class="usershow">
+      <span class="userdetail">{{userdes}}</span>
+    </div>
+    <div class="createtime">
+      注册时间:{{createtime}}
+    </div>
+    <div class="userindex-2">最近参与的帖子</div>
+    <div>暂无</div>
+    <div class="userindex-2">创建的帖子</div>
+    <div>暂无</div>
   </div>
 </div>

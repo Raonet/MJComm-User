@@ -25,6 +25,7 @@ export class LoginHttpService {
     this.cookies.set('userEmail', this.userLoginData.result[0].email);
     this.cookies.set('userAvater', this.userLoginData.result[0].avater);
     this.cookies.set('userDescription', this.userLoginData.result[0].description);
+    this.cookies.set('userCreateTime', this.userLoginData.result[0].createTime);
   }
   delCookie() {
     this.cookies.delete('userId');
@@ -33,6 +34,7 @@ export class LoginHttpService {
     this.cookies.delete('userEmail');
     this.cookies.delete('userAvater');
     this.cookies.delete('userDescription');
+    this.cookies.delete('userCreateTime');
   }
   async postLoginUser(username, password) {
     const data = {email: username, pwd: password };
@@ -47,7 +49,7 @@ export class LoginHttpService {
   }
   async postRegister(useremail, password, username, phones) {
     // tslint:disable-next-line: max-line-length
-    const data = {user: username, pwd: password, email: useremail, phone: phones, avater: 'http://localhost:3000/static/static/default-avater.png', description: '这个人很懒，暂时没有个人介绍'};
+    const data = {user: username, pwd: password, email: useremail, phone: phones, avater: 'http://localhost:3000/static/static/default-avater.png', description: '这个人很懒，暂时没有个人介绍', createTime: new Date()};
     await this.http.post('api/user/create', data, this.httpOptions).toPromise()
     .then(res => {this.createData = res; });
     return this.createData;
