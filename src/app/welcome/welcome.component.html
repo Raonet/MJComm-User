@@ -2,13 +2,11 @@
     <div class="carousel">
         <nz-carousel nzAutoPlay>
             <div nz-carousel-content *ngFor="let index of array">
-              <h3>{{ index }}</h3>
+              <img [src]="index.url" alt="">
             </div>
         </nz-carousel>
     </div>
 </div>
 <div class="contain">
-  <div class="menu">
-
-  </div>
+  <div class="menu">闽江社区新闻</div>
 </div>

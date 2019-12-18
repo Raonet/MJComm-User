@@ -13,4 +13,10 @@ export class DefaultmsgService {
       Authorization: 'my-auth-token',
     })
   };
+  async getHomeImgs() {
+    let homeimg;
+    await this.http.get('api/homepage/homeimg').toPromise()
+    .then(res => { homeimg = res; });
+    return homeimg;
+  }
 }
