@@ -1,66 +1,14 @@
 <nz-layout class="app-layout">
-  <nz-sider class="menu-sidebar"
-            nzCollapsible
-            nzWidth="256px"
-            nzBreakpoint="md"
-            [(nzCollapsed)]="isCollapsed"
-            [nzTrigger]="null">
-    <div class="sidebar-logo">
-      <a href="#" target="_blank">
-        <img src="../assets/社区.svg" alt="logo">
-        <h1>M J 社 区</h1>
-      </a>
-    </div>
-    <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-        <li nz-submenu nzOpen nzTitle="社区主页" nzIcon="smile">
-            <ul>
-              <li nz-menu-item nzMatchRouter>
-                <a routerLink="/welcome">主页</a>
-              </li>
-            </ul>
-          </li>
-        <li nz-submenu nzTitle="我的" nzIcon="user">
-            <ul>
-              <li nz-menu-item nzMatchRouter>
-                <a routerLink="/userdetail">个人详情</a>
-              </li>
-            </ul>
-          </li>
-        <li nz-submenu  nzTitle="拒绝孤独" nzIcon="message">
-          <ul>
-            <li nz-menu-item nzMatchRouter>
-              <a routerLink="/forum">论坛</a>
-            </li>
-            <li nz-menu-item nzMatchRouter>
-              <a routerLink="/chat">聊天室</a>
-            </li>
-          </ul>
-        </li>
-      <li nz-submenu  nzTitle="宿舍/水电/报修" nzIcon="dashboard">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/repair">报修</a>
-          </li>
-        </ul>
-      </li>
-      <li nz-submenu  nzTitle="反馈意见" nzIcon="form">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/feedback">反馈</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </nz-sider>
   <nz-layout>
+    <app-menu></app-menu>
     <nz-header>
       <div class="app-header">
-        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
-            <i class="trigger"
-               nz-icon
-               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
-            ></i>
-        </span>
+        <div class="sidebar-logo">
+          <a href="#" target="_blank">
+            <h1>M J 社 区</h1>
+            <img src="../assets/社区.svg" alt="logo">
+          </a>
+        </div>
         <span class="login">
           <app-user-login (isLogin)="onLogin($event)" *ngIf="isLogin"></app-user-login>
           <app-register *ngIf="isLogin"></app-register>

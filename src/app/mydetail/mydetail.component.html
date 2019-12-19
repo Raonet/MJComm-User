@@ -1,20 +1,27 @@
-<div nz-row>
+<div nz-row class="mydetail">
   <div nz-col nzSpan="24">
-    <div class="userindex">个人主页</div>
+    <h2>个人主页</h2>
     <div class="usershow">
+      <h3>头像:</h3>
       <img [src]="useravater" alt="">
-      <div class="username">{{username}}</div>
+      <h3>用户名: <p>{{ username }}</p> </h3>
     </div>
-    <div class="userindex-2">个人简介</div>
-    <div class="usershow">
-      <span class="userdetail">{{userdes}}</span>
-    </div>
+    <h2>个人简介</h2>
+    <p>{{ userdes }}</p>
     <div class="createtime">
       注册时间:{{createtime}}
     </div>
-    <div class="userindex-2">最近参与的帖子</div>
+    <h2>最近参与的帖子</h2>
     <div>暂无</div>
-    <div class="userindex-2">创建的帖子</div>
+    <h2>创建的帖子</h2>
     <div>暂无</div>
   </div>
+  <nz-modal [(nzVisible)]="isVisible" nzTitle="更改个人信息" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+    用户名:<input nz-input placeholder="Basic usage" [(ngModel)]="username" />
+    头像: <br/> <nz-upload nzAction="api/user/uploadavatar/userid">
+      <button nz-button><i nz-icon nzType="upload"></i><span>添加</span></button>
+    </nz-upload>
+    个人简介: <input nz-input placeholder="Basic usage" [(ngModel)]="userdes" />
+  </nz-modal>
+  <button nz-button [nzSize]="size" (click)="showModal()">更改个人信息</button>
 </div>

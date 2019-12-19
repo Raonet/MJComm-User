@@ -1,0 +1,43 @@
+<div class="menu">
+  <button nz-button nzType="primary" (click)="showMenu = !showMenu" nzGhost>菜单</button>
+  <ul nz-menu nzTheme="light" nzMode="vertical" [nzInlineCollapsed]="isCollapsed" *ngIf="showMenu">
+    <li nz-submenu nzTitle="社区主页" nzIcon="smile">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/welcome">主页</a>
+          </li>
+        </ul>
+      </li>
+    <li nz-submenu nzTitle="我的" nzIcon="user">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/userdetail">个人详情</a>
+          </li>
+        </ul>
+      </li>
+    <li nz-submenu  nzTitle="社交" nzIcon="message">
+      <ul>
+        <li nz-menu-item nzMatchRouter>
+          <a routerLink="/forum">论坛</a>
+        </li>
+        <li nz-menu-item nzMatchRouter>
+          <a routerLink="/chat">聊天室</a>
+        </li>
+      </ul>
+    </li>
+  <li nz-submenu  nzTitle="报修" nzIcon="dashboard">
+    <ul>
+      <li nz-menu-item nzMatchRouter>
+        <a routerLink="/repair">报修</a>
+      </li>
+    </ul>
+  </li>
+  <li nz-submenu  nzTitle="反馈意见" nzIcon="form">
+    <ul>
+      <li nz-menu-item nzMatchRouter>
+        <a routerLink="/feedback">反馈</a>
+      </li>
+    </ul>
+  </li>
+</ul>
+</div>

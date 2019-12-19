@@ -19,4 +19,10 @@ export class DefaultmsgService {
     .then(res => { homeimg = res; });
     return homeimg;
   }
+  async getNews() {
+    let news;
+    await this.http.get('api/news/getnews').toPromise()
+    .then(res => { news = res; });
+    return news ;
+  }
 }

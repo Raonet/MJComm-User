@@ -1,43 +1,30 @@
-.userdetail{
-  background-color: #f6f6f6;
-  color: #80BD01;
-  padding: 10px;
-  margin: 0 10px 0 0;
+.mydetail {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
 }
-.userindex {
-  background-color: #f6f6f6;
-  color: #80BD01;
-  padding: 10px;
-  margin: 0 10px 0 0;
-}
-.userindex-2 {
-  background-color: #f6f6f6;
-  color: #80BD01;
-  padding: 10px;
-  margin: 10px 10px 0 0;
-}
-.usershow {
-  margin: 20px 10px 0 0;
-  background-color: #f6f6f6;
-}
-.usershow img {
-  width: 80px;
-  height: 80px;
-}
-.usershow .username{
+h2 {
   font-weight: bold;
-  margin: 0 0 0 30px;
+  font-size:20px;
+}
+.usershow img{
+  width: 90px;
+  height: 90px;
+  border-radius: 45px;
+}
+h3>p {
+  font-weight: bold;
   font-size: 18px;
 }
-.createtime{
-  margin: 20px 10px 0 0;
-  background-color: #f6f6f6;
-  font-style: italic;
+button {
+  display: block;
+  margin: 20px auto;
 }
-.usershow .userdetail{
-  font-weight: bold;
-  margin: 0 0 0 30px;
-  font-size: 14px;
+i[nz-icon] {
+  font-size: 32px;
+  color: #999;
 }
-
-
+.ant-upload-text {
+  margin-top: 8px;
+  color: #666;
+}

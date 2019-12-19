@@ -1,1 +1,70 @@
-<div class="forumTitle">M J 社 区 论 坛</div>
+<div class="forum">
+  <div class="forumTitle">M J 社 区 论 坛</div>
+  <div class="main">
+    <div class="edit">
+      <button nz-button nzType="primary" nzGhost class="tiezi">发个帖子</button>
+      <div class="search">
+        <nz-input-group [nzSuffix]="suffixIconSearch">
+          <input type="text" nz-input placeholder="搜索帖子" />
+        </nz-input-group>
+        <ng-template #suffixIconSearch>
+          <i nz-icon nzType="search"></i>
+        </ng-template>
+      </div>
+    </div>
+    <nz-list
+      [nzDataSource]="data"
+      [nzItemLayout]="'vertical'"
+      [nzRenderItem]="item"
+      [nzPagination]="pagination"
+      [nzFooter]="footer"
+    >
+      <ng-template #item let-item>
+        <nz-list-item
+          [nzContent]="item.content"
+          [nzActions]="[starAction, likeAction, msgAction]"
+          [nzExtra]="extra"
+        >
+          <ng-template #starAction
+            ><i nz-icon nzType="star-o" style="margin-right: 8px;"></i>
+            156</ng-template
+          >
+          <ng-template #likeAction
+            ><i nz-icon nzType="like-o" style="margin-right: 8px;"></i>
+            156</ng-template
+          >
+          <ng-template #msgAction
+            ><i nz-icon nzType="message" style="margin-right: 8px;"></i>
+            2</ng-template
+          >
+          <nz-list-item-meta
+            [nzAvatar]="item.avatar"
+            [nzTitle]="nzTitle"
+            [nzDescription]="item.description"
+          >
+            <ng-template #nzTitle
+              ><a href="{{ item.href }}">{{ item.title }}</a></ng-template
+            >
+          </nz-list-item-meta>
+          <ng-template #extra>
+            <img
+              width="272"
+              alt="logo"
+              src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
+            />
+          </ng-template>
+        </nz-list-item>
+      </ng-template>
+      <ng-template #footer>
+        <div><b>ant design</b> footer part</div>
+      </ng-template>
+      <ng-template #pagination>
+        <nz-pagination
+          [nzPageIndex]="1"
+          [nzTotal]="50"
+          (nzPageIndexChange)="loadData($event)"
+        ></nz-pagination>
+      </ng-template>
+    </nz-list>
+  </div>
+</div>

@@ -1,11 +1,34 @@
+.forum {
+  width: 80%;
+  margin: 0 auto;
+}
 .forumTitle {
   width: 100%;
-  background-color: #80BD01;
-  color: #fff;
   height: 36px;
   line-height: 36px;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
   border-radius: 15px;
+  text-shadow: 1px 1px 2px;
+}
+.edit {
+  margin: 10px 0 10px 0;
+  height: 50px;
+  width: 100%;
+  background-color: #eee;
+  color: #80BD01;
+}
+.edit .tiezi{
+  margin: 10px 0 0 5px;
+}
+.edit .search {
+  margin: 10px 5px 0 0;
+  width: 20%;
+  display: inline-flex;
+  float: right;
+}
+.main {
+  padding: 24px;
+  background-color: #f8f8f8;
 }

@@ -37,6 +37,7 @@
   line-height: 64px;
   background: #fff;
   transition: all .3s;
+  display: inline-block;
 }
 
 .sidebar-logo img {
@@ -48,12 +49,13 @@
 
 .sidebar-logo h1 {
   display: inline-block;
-  margin: 0 0 0 40px;
+  margin: 0;
   color: #000;
   font-weight: 600;
   font-size: 14px;
   font-family: Avenir,Helvetica Neue,Arial,Helvetica,sans-serif;
   vertical-align: middle;
+  display: inline-block;
 }
 
 nz-header {
@@ -75,9 +77,8 @@ nz-content {
 }
 
 .inner-content {
-  padding: 24px;
+  width: 100%;
   background: #fff;
-  height: 100vw;
 }
 
 .login{
@@ -113,4 +114,7 @@ nz-content {
   height: 32px;
   line-height: 32px;
   border-radius: 50%;
+}
+.ant-layout-content {
+  margin: 24px 0 0 0;
 }

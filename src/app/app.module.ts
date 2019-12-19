@@ -19,6 +19,7 @@ import { RepairComponent } from './repair/repair.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { RegisterComponent } from './register/register.component';
+import { MenuComponent } from './menu/menu.component';
 
 registerLocaleData(zh);
 
@@ -32,7 +33,8 @@ registerLocaleData(zh);
     RepairComponent,
     FeedbackComponent,
     UserLoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
