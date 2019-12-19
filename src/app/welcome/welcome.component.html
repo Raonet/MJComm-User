@@ -16,12 +16,12 @@
         [nzDataSource]="data"
         nzBordered
         nzSize="large"
-        [nzHeader]="'新闻'"
+        [nzHeader]="'社区新闻'"
         [nzFooter]="'感谢收看'"
         [nzRenderItem]="smallItem"
       >
         <ng-template #smallItem let-item
-          ><nz-list-item [nzContent]="item"></nz-list-item
+          ><nz-list-item [nzContent]="item.title"></nz-list-item
         ></ng-template>
       </nz-list>
     </div>
