@@ -9,7 +9,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class AppComponent {
   constructor( private loginService: LoginHttpService, private cookies: CookieService) {}
-  isCollapsed = false;
+  isCollapsed = true;
   isLogin = true;
   avaterimg;
   onLogin(Login: boolean) {

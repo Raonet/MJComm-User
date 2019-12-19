@@ -9,4 +9,15 @@
 </div>
 <div class="contain">
   <div class="menu">闽江社区新闻</div>
+    <h3 [ngStyle]="{ margin: '16px 0' }"></h3>
+    <nz-list
+      [nzDataSource]="data"
+      nzBordered
+      nzSize="large"
+      [nzHeader]="'新闻'"
+      [nzFooter]="'感谢收看'"
+      [nzRenderItem]="smallItem"
+    >
+      <ng-template #smallItem let-item><nz-list-item [nzContent]="item"></nz-list-item></ng-template>
+    </nz-list>
 </div>
