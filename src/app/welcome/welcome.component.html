@@ -1,9 +1,9 @@
 <div nz-row>
   <div nz-col nzSpan="24">
-    <div class="banner">
+    <div class="banner" [ngStyle]="{'height': height + 'px'}">
       <div class="carousel" [ngStyle]="{'width': width +'px'}">
         <nz-carousel nzAutoPlay>
-          <div nz-carousel-content *ngFor="let index of array">
+          <div nz-carousel-content *ngFor="let index of array" >
             <img [src]="index.url" alt="" />
           </div>
         </nz-carousel>

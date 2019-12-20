@@ -1,0 +1,34 @@
+<div class="editor">
+  <div class="editortitle">
+    标题:<input nz-input placeholder="帖子标题" [(ngModel)]="editorTitle" />
+    简略描述:<input nz-input placeholder="简略描述" [(ngModel)]="editorDescription" />
+  </div>
+  <div class="wangeditor-box">
+    <div id="editorMenu"></div>
+    <div id="editor" style="height:400px;max-height:500px;">
+      <p>{{defaultMessage}}</p>
+    </div>
+
+    <div class="btn-group">
+      <!-- <pre class="show-message">{{showMessage}}</pre> -->
+      <!-- <div [innerHTML]="showMessage | html"></div>
+      <hr/> -->
+      <!-- <textarea rows="4" nz-input [(ngModel)]="textareaValue" class="text-area"></textarea>
+      <button class="btn-search margin-l-10" nz-button [nzType]="'primary'" [nzSize]="'normal'"
+              (click)="setContent()">
+        <span>设置内容</span>
+      </button>
+      <hr/> -->
+
+    <button class="btn-search" nz-button [nzType]="'primary'" [nzSize]="'normal'"
+            (click)="getContent()">
+      <span>提交</span>
+    </button>
+
+      <!-- <button class="btn-search" nz-button [nzType]="'primary'" [nzSize]="'normal'"
+              (click)="getContentText()">
+        <span>获取内容（纯文本）</span>
+      </button> -->
+    </div>
+  </div>
+</div>

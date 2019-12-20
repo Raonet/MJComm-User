@@ -20,6 +20,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { RegisterComponent } from './register/register.component';
 import { MenuComponent } from './menu/menu.component';
+import { EditorComponent } from './editor/editor.component';
 
 registerLocaleData(zh);
 
@@ -35,6 +36,7 @@ registerLocaleData(zh);
     UserLoginComponent,
     RegisterComponent,
     MenuComponent,
+    EditorComponent,
   ],
   imports: [
     BrowserModule,

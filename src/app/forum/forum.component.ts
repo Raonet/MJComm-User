@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-interface ItemData {
-  href: string;
-  title: string;
-  avatar: string;
-  description: string;
-  content: string;
-}
+import { ForumHttpService } from '../forum-http.service';
 @Component({
   selector: 'app-forum',
   templateUrl: './forum.component.html',
@@ -13,22 +7,15 @@ interface ItemData {
 })
 export class ForumComponent implements OnInit {
 
-  constructor() { }
-  data: ItemData[] = [];
+  constructor(private forumService: ForumHttpService) { }
+  data;
   ngOnInit(): void {
-    this.loadData(1);
+    this.getForums();
   }
-  loadData(pi: number): void {
-    this.data = new Array(5).fill({}).map((_, index) => {
-      return {
-        href: 'http://ant.design',
-        title: `ant design part ${index} (page: ${pi})`,
-        avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-        description: 'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-        content:
-          'We supply a series of design principles, practical patterns and high quality design resources ' +
-          '(Sketch and Axure), to help people create their product prototypes beautifully and efficiently.'
-      };
-    });
+  async getForums() {
+    let forum;
+    await this.forumService.getForums().then(res => {forum = res; } );
+    this.data = forum;
+    console.log(this.data);
   }
 }

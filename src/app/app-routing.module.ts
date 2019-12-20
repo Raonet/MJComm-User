@@ -7,6 +7,7 @@ import { ForumComponent } from './forum/forum.component';
 import { ChatroomComponent } from './chatroom/chatroom.component';
 import { RepairComponent } from './repair/repair.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { EditorComponent } from './editor/editor.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/welcome' },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'chat', component: ChatroomComponent, canActivate: [AuthGuard]},
   { path: 'repair', component: RepairComponent, canActivate: [AuthGuard]},
   { path: 'feedback', component: FeedbackComponent, canActivate: [AuthGuard]},
+  { path: 'editor', component: EditorComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

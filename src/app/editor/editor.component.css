@@ -1,0 +1,26 @@
+@import "../../../node_modules/wangeditor/release/wangEditor.min.css";
+.editor {
+  width: 80%;
+  margin: 0 auto;
+  padding: 24px;
+  height: 100%;
+}
+.editor .editortitle input:first-child{
+  width: 20%;
+  margin: 0 auto;
+  display: block;
+}
+.editor .editortitle input:last-child {
+  width: 40%;
+  margin: 0 auto;
+  display: block;
+}
+.wangeditor-box {
+  margin: 20px;
+  background-color: #f6f6f6;
+}
+.btn-group button {
+  margin: 10px 0 0 0;
+  position: relative;
+  float: right;
+}
