@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, Renderer } from '@angular/core';
+import { NzMessageService } from 'ng-zorro-antd/message';
 import * as wangEditor from '../../../node_modules/wangeditor/release/wangEditor.js';
 import { ForumHttpService } from '../forum-http.service';
 
@@ -29,6 +30,7 @@ export class EditorComponent implements OnInit {
     '.cn/t4/appstyle/expression/ext/normal/40/pcmoren_tian_org.png"></p>';
 
   constructor(
+    private msg: NzMessageService,
     private forumService: ForumHttpService,
     private el: ElementRef,
     // tslint:disable-next-line: deprecation
@@ -178,8 +180,17 @@ export class EditorComponent implements OnInit {
     this.editorContent = this.editor.txt.html();
     return this.postEditor();
   }
-  postEditor() {
-    return this.forumService.postForum(this.editorTitle, this.editorContent, this.editorDescription);
+  async postEditor() {
+    let result;
+    result = await this.forumService.postForum(this.editorTitle, this.editorContent, this.editorDescription);
+    if (result._id) {
+      this.editorTitle = '';
+      this.editorContent = '';
+      this.editorDescription = '';
+      this.defaultMessage = '';
+      this.showMessage = '';
+      this.msg.info('发表成功');
+    }
   }
 
   // 获取编辑器文字内容

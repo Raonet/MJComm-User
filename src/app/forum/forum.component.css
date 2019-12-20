@@ -1,23 +1,26 @@
 .forum {
   width: 80%;
   margin: 0 auto;
+  padding: 24px;
 }
 .forumTitle {
   width: 100%;
   height: 36px;
   line-height: 36px;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
   text-align: center;
   border-radius: 15px;
   text-shadow: 1px 1px 2px;
+  margin: 10px;
 }
 .edit {
   margin: 10px 0 10px 0;
   height: 50px;
   width: 100%;
-  background-color: #eee;
+  background-color: #fff;
   color: #80BD01;
+  box-shadow: 1px 1px 1px;
 }
 .edit .tiezi{
   margin: 10px 0 0 5px;
@@ -29,6 +32,22 @@
   float: right;
 }
 .main {
+  margin-top: 24px;
   padding: 24px;
-  background-color: #f8f8f8;
+  background-color: #87CEEB;
+}
+.avatar {
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+}
+.list {
+  background-color: #fff;
+  margin-top: 30px;
+  box-shadow: 2px 2px 3px #80BD01;
+}
+.listitem {
+  height: 70px;
+  padding: 10px;
+  line-height: 50px;
 }

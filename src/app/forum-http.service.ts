@@ -16,10 +16,12 @@ export class ForumHttpService {
     })
   };
   async postForum(forumTitle,  contents, descriptions) {
+    let forum;
     // tslint:disable-next-line: max-line-length
     const data = {title: forumTitle, content: contents, description: descriptions , createtime: new Date(), moditime: new Date(), heat: 0, author: {userid: this.cookies.get('userId'), name: this.cookies.get('userName'), avatar: this.cookies.get('userAvater')}};
     await this.http.post('api/forum/addforum', data, this.httpOptions).toPromise()
-    .then(res => { console.log(res); } );
+    .then(res => { forum = res; } );
+    return forum;
   }
   async getForums() {
     let forums;

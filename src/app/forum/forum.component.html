@@ -11,6 +11,24 @@
           <i nz-icon nzType="search"></i>
         </ng-template>
       </div>
+      <nz-list [nzDataSource]="data" [nzRenderItem]="item" [nzItemLayout]="'horizontal'" [nzLoading]="loading" class="list">
+        <ng-template #item let-item>
+          <nz-list-item class="listitem">
+            <nz-list-item-meta
+              [nzTitle]="nzTitle"
+              [nzAvatar]="nzAvatar"
+              [nzDescription]="nzDescription"
+            >
+            <ng-template #nzAvatar> <img [src]="item.author.avatar" class="avatar"> </ng-template>
+              <ng-template #nzTitle>
+                <a href="https://ng.ant.design">{{ item.title }}</a>
+              </ng-template>
+              <ng-template #nzDescription>{{ item.description }}</ng-template>
+
+            </nz-list-item-meta>
+          </nz-list-item>
+        </ng-template>
+      </nz-list>
     </div>
   </div>
 </div>
