@@ -3,7 +3,7 @@
     <h2>个人主页</h2>
     <div class="usershow">
       <h3>头像:</h3>
-      <img [src]="useravater" alt="">
+      <img [src]="avatarUrl" alt="">
       <h3>用户名: <p>{{ username }}</p> </h3>
     </div>
     <h2>个人简介</h2>
@@ -18,9 +18,20 @@
   </div>
   <nz-modal [(nzVisible)]="isVisible" nzTitle="更改个人信息" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
     用户名:<input nz-input placeholder="Basic usage" [(ngModel)]="username" />
-    头像: <br/> <nz-upload nzAction="api/user/uploadavatar/userid">
-      <button nz-button><i nz-icon nzType="upload"></i><span>添加</span></button>
-    </nz-upload>
+    头像: <nz-upload
+    class="avatar-uploader"
+    nzAction="api/upload"
+    nzName="file"
+    nzListType="picture-card"
+    [nzShowUploadList]="false"
+    (nzChange)="handleChange($event)"
+  >
+    <ng-container *ngIf="!avatarUrl">
+      <i class="upload-icon" nz-icon [nzType]="loading ? 'loading' : 'plus'"></i>
+      <div class="ant-upload-text">Upload</div>
+    </ng-container>
+    <img *ngIf="avatarUrl" [src]="avatarUrl" class="avatar" />
+  </nz-upload>
     个人简介: <input nz-input placeholder="Basic usage" [(ngModel)]="userdes" />
   </nz-modal>
   <button nz-button [nzSize]="size" (click)="showModal()">更改个人信息</button>
