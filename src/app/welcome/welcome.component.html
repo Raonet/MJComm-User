@@ -20,9 +20,9 @@
         [nzFooter]="'感谢收看'"
         [nzRenderItem]="smallItem"
       >
-        <ng-template #smallItem let-item
-          ><nz-list-item [nzContent]="item.title"></nz-list-item
-        ></ng-template>
+        <ng-template #smallItem let-item>
+          <nz-list-item [nzContent]="item.title" class="point" routerLink="/newdetail"  [queryParams]="{id:item._id}"></nz-list-item>
+        </ng-template>
       </nz-list>
     </div>
   </div>

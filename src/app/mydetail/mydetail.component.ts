@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginHttpService } from '../login-http.service';
 import { CookieService } from 'ngx-cookie-service';
-import { Observable, Observer } from 'rxjs';
 import { NzMessageService, UploadFile } from 'ng-zorro-antd';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-mydetail',
@@ -11,7 +11,8 @@ import { NzMessageService, UploadFile } from 'ng-zorro-antd';
 })
 export class MydetailComponent implements OnInit {
 
-  constructor(private loginService: LoginHttpService, private cookies: CookieService, private msg: NzMessageService) { }
+  // tslint:disable-next-line: max-line-length
+  constructor(private loginService: LoginHttpService, private cookies: CookieService, private msg: NzMessageService, private appComponent: AppComponent) { }
   loading = false;
   avatarUrl = this.cookies.get('userAvater');
   isVisible = false;
@@ -20,7 +21,6 @@ export class MydetailComponent implements OnInit {
   userdes = this.cookies.get('userDescription');
   userid = this.cookies.get('userId');
   ngOnInit() {
-    console.log(this.userid);
   }
   showModal(): void {
     this.isVisible = true;
@@ -63,12 +63,8 @@ export class MydetailComponent implements OnInit {
         this.loading = true;
         break;
       case 'done':
-        // Get this url from response in real world.
-        // tslint:disable-next-line: no-non-null-assertion
-        this.getBase64(info.file!.originFileObj!, (img: string) => {
-          this.loading = false;
-          this.avatarUrl = img;
-        });
+        this.avatarUrl = info.file.response.url;
+        this.appComponent.avaterimg = this.avatarUrl;
         break;
       case 'error':
         this.msg.error('Network error');
@@ -78,6 +74,12 @@ export class MydetailComponent implements OnInit {
   }
   async postChange() {
     const data = {_id: this.userid, user: this.username, description: this.userdes, avater: this.avatarUrl };
-    return this.loginService.changeInfo(data);
+    const ok = await this.loginService.changeInfo(data);
+    if (ok.result.ok === 1) {
+      this.msg.info('更新成功，请重新登录!');
+      this.appComponent.outLogin();
+    } else {
+      this.msg.info('更新失败，请稍后再试!');
+    }
   }
 }

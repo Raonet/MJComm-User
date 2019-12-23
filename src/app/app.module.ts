@@ -21,6 +21,7 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { RegisterComponent } from './register/register.component';
 import { MenuComponent } from './menu/menu.component';
 import { EditorComponent } from './editor/editor.component';
+import { NewDetailComponent } from './new-detail/new-detail.component';
 
 registerLocaleData(zh);
 
@@ -37,6 +38,7 @@ registerLocaleData(zh);
     RegisterComponent,
     MenuComponent,
     EditorComponent,
+    NewDetailComponent,
   ],
   imports: [
     BrowserModule,

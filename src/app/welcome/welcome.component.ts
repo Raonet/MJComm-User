@@ -8,6 +8,7 @@ import { DefaultmsgService } from '../defaultmsg.service';
 export class WelcomeComponent implements OnInit {
   array;
   constructor( private deHttpService: DefaultmsgService) { }
+  isVisible = false;
   data ;
   datalist;
   width = document.body.clientWidth - 20;

@@ -55,7 +55,9 @@ export class LoginHttpService {
     return this.createData;
   }
   async changeInfo(data) {
-    await this.http.post('api/user/updata', data, this.httpOptions).toPromise()
-    .then(res => {console.log(res); } );
+    let ok;
+    await this.http.post('api/user/update', data, this.httpOptions).toPromise()
+    .then(res => { ok = res; } );
+    return ok;
   }
 }

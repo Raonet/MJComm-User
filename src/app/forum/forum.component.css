@@ -1,7 +1,7 @@
 .forum {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
-  padding: 24px;
+  /* padding: 24px; */
 }
 .forumTitle {
   width: 100%;
@@ -47,6 +47,7 @@
   box-shadow: 2px 2px 3px #80BD01;
 }
 .listitem {
+  width: 100%;
   height: 70px;
   padding: 10px;
   line-height: 50px;

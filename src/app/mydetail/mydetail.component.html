@@ -33,6 +33,9 @@
     <img *ngIf="avatarUrl" [src]="avatarUrl" class="avatar" />
   </nz-upload>
     个人简介: <input nz-input placeholder="Basic usage" [(ngModel)]="userdes" />
+    <div *nzModalFooter>
+      <button nz-button nzType="primary" (click)="handleOk()" routerLink="/">更改</button>
+    </div>
   </nz-modal>
   <button nz-button [nzSize]="size" (click)="showModal()">更改个人信息</button>
 </div>

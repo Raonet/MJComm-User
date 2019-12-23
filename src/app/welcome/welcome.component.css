@@ -36,3 +36,6 @@ h3 {
 .carousel img {
   width: 100%;
 }
+.point {
+  cursor: pointer;
+}
