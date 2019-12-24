@@ -14,6 +14,7 @@ export class AppComponent {
   avaterimg;
   onLogin(Login: boolean) {
     this.isLogin = false;
+    this.avaterimg = this.cookies.get('userAvater');
   }
   outLogin() {
     this.loginService.userLoginData = undefined;
