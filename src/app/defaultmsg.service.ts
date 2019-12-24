@@ -7,6 +7,7 @@ import { HttpHeaders } from '@angular/common/http';
 export class DefaultmsgService {
 
   constructor(private http: HttpClient) { }
+  newlist;
   httpOptions = {
     header: new HttpHeaders ({
       'Content-type': 'application/json',
@@ -22,7 +23,7 @@ export class DefaultmsgService {
   async getNews() {
     let news;
     await this.http.get('api/news/getnews').toPromise()
-    .then(res => { news = res; });
+    .then(res => { news = res; this.newlist = res; });
     return news ;
   }
 }

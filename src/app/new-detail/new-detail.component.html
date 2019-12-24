@@ -1,6 +1,9 @@
 <div class="newdetail">
   <div class="detail">
-    {{ news.title }}
-    {{ news.content }}
+    <h2>{{ news.title }}</h2>
+    <p>编辑于:{{ news.createtime }}</p>
+    <div class="text">
+      {{ news.content }}
+    </div>
   </div>
 </div>

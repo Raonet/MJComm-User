@@ -15,16 +15,15 @@ export class NewDetailComponent implements OnInit {
   news = {
     title: '',
     _id: '',
-    content: ''
+    content: '',
+    createtime: ''
   };
   ngOnInit() {
     this.id = this.routerinfo.snapshot.queryParams.id;
-    console.log(this.id);
     this.getNews();
   }
   async getNews() {
-    let data;
-    await this.dehttpService.getNews().then(res => {data = res; });
+    const data = this.dehttpService.newlist;
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < data.length; i++) {
       if (data[i]._id === this.id) {
