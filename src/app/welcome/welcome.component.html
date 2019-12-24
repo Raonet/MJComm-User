@@ -17,11 +17,14 @@
         nzBordered
         nzSize="large"
         [nzHeader]="'社区新闻'"
-        [nzFooter]="'感谢收看'"
-        [nzRenderItem]="smallItem"
+        [nzRenderItem]="item"
       >
-        <ng-template #smallItem let-item>
-          <nz-list-item [nzContent]="item.title" class="point" routerLink="/newdetail"  [queryParams]="{id:item._id}"></nz-list-item>
+        <ng-template #item let-item>
+          <nz-list-item [nzContent]="content" class="point" >
+            <ng-template #content>
+              <div routerLink="/newdetail"  [queryParams]="{id:item._id}">{{ item.title }}</div>
+            </ng-template>
+          </nz-list-item>
         </ng-template>
       </nz-list>
     </div>
