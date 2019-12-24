@@ -8,6 +8,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class ForumHttpService {
 
   constructor(private http: HttpClient, private cookies: CookieService) { }
+  data;
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -26,7 +27,7 @@ export class ForumHttpService {
   async getForums() {
     let forums;
     await this.http.get('api/forum/getall').toPromise()
-    .then(res => { forums = res; });
+    .then(res => { forums = res; this.data = res; });
     return forums;
   }
 }

@@ -21,10 +21,9 @@
             >
             <ng-template #nzAvatar> <img [src]="item.author.avatar" class="avatar"> </ng-template>
               <ng-template #nzTitle>
-                <a href="https://ng.ant.design">{{ item.title }}</a>
+                <a routerLink="/forumdetail" [queryParams]="{id:item._id}">{{ item.title }}</a>
               </ng-template>
               <ng-template #nzDescription>{{ item.description }}</ng-template>
-
             </nz-list-item-meta>
           </nz-list-item>
         </ng-template>

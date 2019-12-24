@@ -1,0 +1,21 @@
+.forumdetail {
+  width: 100%;
+  text-align: center;
+}
+.detail {
+  background-color: #f6f6f6;
+  width: 90%;
+  padding: 24px;
+  margin: 24px auto;
+}
+.forumdetail .detail h2 {
+  font-size: 26px;
+  font-weight: bold;
+}
+.forumdetail .detail p {
+  margin: 2% 0 0 15%;
+  color:#666;
+}
+.forumdetail .detail .text {
+  margin: 1% 0 0 0;
+}

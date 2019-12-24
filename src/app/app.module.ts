@@ -22,6 +22,7 @@ import { RegisterComponent } from './register/register.component';
 import { MenuComponent } from './menu/menu.component';
 import { EditorComponent } from './editor/editor.component';
 import { NewDetailComponent } from './new-detail/new-detail.component';
+import { ForumDetailComponent } from './forum-detail/forum-detail.component';
 
 registerLocaleData(zh);
 
@@ -39,6 +40,7 @@ registerLocaleData(zh);
     MenuComponent,
     EditorComponent,
     NewDetailComponent,
+    ForumDetailComponent,
   ],
   imports: [
     BrowserModule,
