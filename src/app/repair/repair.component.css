@@ -1,0 +1,28 @@
+.repair {
+  width: 90%;
+  margin: 12px auto;
+  padding: 24px;
+  background-color: #f6f6f6;
+  box-shadow: 2px 0 2px #999;
+}
+
+.box {
+  margin: 0 auto;
+}
+
+[nz-form] {
+  max-width: 600px;
+}
+
+.phone-select {
+  width: 70px;
+}
+
+.register-are {
+  margin-bottom: 8px;
+}
+
+nz-select {
+  margin: 0 0 10px 8px;
+  width: 120px;
+}
