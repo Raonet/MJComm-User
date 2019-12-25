@@ -50,8 +50,6 @@ export class EditorComponent implements OnInit {
 
   // 编辑器相关配置设置
   setEditorConfig() {
-    // 使用 base64 保存图片
-    this.editor.customConfig.uploadImgShowBase64 = true;
     // 菜单展示项配置
     // this.editor.customConfig.menus = this.getMenuConfig();
     // 自定义配置颜色（字体颜色、背景色）
@@ -68,6 +66,15 @@ export class EditorComponent implements OnInit {
     this.editor.customConfig.onfocus = this.editorOnFocus;
     // 编辑器失去焦点触发方法
     this.editor.customConfig.onblur = this.editorOnBlur;
+    // 配置服务器端地址
+    this.editor.customConfig.uploadImgServer = 'api/upload';
+    this.editor.customConfig.uploadFileName = 'file';
+    this.editor.customConfig.uploadImgHooks = {
+      customInsert(insertImg, result, editor) {
+        const url = result.url;
+        insertImg(url);
+      }
+    };
   }
 
   // 获取显示菜单项

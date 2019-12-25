@@ -2,7 +2,7 @@
   width: 90%;
   margin: 12px auto;
   padding: 24px;
-  background-color: #f6f6f6;
+  background-color: #ADD8E6;
   box-shadow: 2px 0 2px #999;
 }
 
@@ -25,4 +25,12 @@
 nz-select {
   margin: 0 0 10px 8px;
   width: 120px;
+}
+.question {
+  width: 80%;
+  margin: 0 auto;
+}
+button {
+  margin-top: 5px;
+  float: right;
 }
