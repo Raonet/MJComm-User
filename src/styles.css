@@ -9,7 +9,7 @@ address,caption,cite,code,dfn,em,strong,th,var { font-size:normal; font-weight:n
 /* Removes list-style from lists */
 table { border-collapse:collapse; border-spacing:0 }
 /* Removes border from fieldset and img */
-fieldset,img { border:0 ;width: 100%;}
+fieldset,img { border:0 ;}
 /* Left-aligns text in caption and th */
 caption,th { text-align:left }
 /* Removes quotation marks from q */
