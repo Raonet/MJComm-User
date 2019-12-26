@@ -30,8 +30,8 @@ export class WebSocketService {
       console.log(data);
     });
   }
-  sendMessage(msg: string) {
-    this.ws.emit('events', { message: msg });
+  sendMessage(data) {
+    this.ws.emit('events',  data );
   }
   analysisMessage(data) {
     this.message.next(data);

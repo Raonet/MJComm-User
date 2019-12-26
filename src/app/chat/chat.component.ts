@@ -1,9 +1,10 @@
 import { Component, OnInit, Renderer, ElementRef } from '@angular/core';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { ActivatedRoute } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import * as wangEditor from '../../../node_modules/wangeditor/release/wangEditor.js';
 import { WebSocketService } from '../web-socket.service';
 import { ForumHttpService } from '../forum-http.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-chat',
@@ -28,6 +29,7 @@ export class ChatComponent implements OnInit {
     '.cn/t4/appstyle/expression/ext/normal/40/pcmoren_tian_org.png"></p>';
 
   constructor(
+    private cookies: CookieService,
     private routerinfo: ActivatedRoute,
     private websocket: WebSocketService,
     private msg: NzMessageService,
@@ -181,9 +183,11 @@ export class ChatComponent implements OnInit {
   connectMsg() {
     this.websocket.connectSocket('http://localhost:3000');
   }
-  sendMessage = (html) => {
+  sendMessage() {
     this.getContent();
-    this.websocket.sendMessage(this.editorContent);
-    console.log(this.editorContent);
+    const message = this.editorContent;
+    const chatdata = {userid: this.cookies.get('userId'), avatar: this.cookies.get('userAvater'), msg: message, time: new Date()};
+    const chat = {name: this.chatname, data: [chatdata]};
+    this.websocket.sendMessage(chat);
   }
 }
