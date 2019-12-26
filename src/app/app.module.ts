@@ -23,6 +23,7 @@ import { MenuComponent } from './menu/menu.component';
 import { EditorComponent } from './editor/editor.component';
 import { NewDetailComponent } from './new-detail/new-detail.component';
 import { ForumDetailComponent } from './forum-detail/forum-detail.component';
+import { ChatComponent } from './chat/chat.component';
 
 registerLocaleData(zh);
 
@@ -41,6 +42,7 @@ registerLocaleData(zh);
     EditorComponent,
     NewDetailComponent,
     ForumDetailComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,16 @@
-<p>chatroom works!</p>
+<div class="chatroom">
+  <h4 nz-title>聊天室列表</h4>
+  <div class="chatlist">
+    <nz-list [nzDataSource]="data" [nzRenderItem]="item" [nzGrid]="{ gutter: 16, xs: 24, sm: 12, md: 6, lg: 6, xl: 4 }">
+      <ng-template #item let-item>
+        <nz-list-item [nzContent]="nzContent">
+          <ng-template #nzContent>
+            <nz-card [nzTitle]="item.title" routerLink="/chat">
+              Card content
+            </nz-card>
+          </ng-template>
+        </nz-list-item>
+      </ng-template>
+    </nz-list>
+  </div>
+</div>

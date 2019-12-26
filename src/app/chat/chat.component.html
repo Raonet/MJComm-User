@@ -1,0 +1,18 @@
+<div class="chat">
+  <div class="chatHeader"></div>
+  <div class="chatContent"></div>
+  <div class="chatEditor">
+    <div class="wangeditor-box">
+      <div id="editorMenu"></div>
+      <div id="editor" style="height:150px;max-height:150px;">
+        <p>{{defaultMessage}}</p>
+      </div>
+      <div class="btn-group">
+      <button class="btn-search" nz-button [nzType]="'primary'" [nzSize]="'normal'"
+              (click)="sendMessage()">
+        <span>发送</span>
+      </button>
+      </div>
+    </div>
+  </div>
+</div>

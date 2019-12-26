@@ -1,0 +1,31 @@
+@import "../../../node_modules/wangeditor/release/wangEditor.css";
+.chat {
+  width: 90%;
+  margin: 0 auto;
+  padding: 24px;
+  background-color: #aaa;
+  margin-top: 12px;
+}
+.chat .chatHeader {
+  background-color: #333;
+  color:#fff;
+  width: 100%;
+  height: 40px;
+}
+.chat .chatContent {
+  background-color: #fff;
+  color: #000;
+  width: 100%;
+  height: 300px;
+}
+.wangeditor-box {
+  margin: 0;
+  background-color: #f6f6f6;
+  height: 200px;
+}
+.btn-group button {
+  background-color: #333;
+  position: relative;
+  float: right;
+  border-color: #333;
+}

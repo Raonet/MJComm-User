@@ -20,12 +20,16 @@ export class WebSocketService {
       this.ws.close();
       }
     });
-    this.ws.on('message', (data) => {
+    this.ws.on('events', (data) => {
       this.analysisMessage(data);
+      console.log(data);
     });
   }
-  analysisMessage(message) {
-    this.message.next(message);
+  sendMessage(msg: string) {
+    this.ws.emit('events', { message: msg });
+  }
+  analysisMessage(data) {
+    this.message.next(data);
   }
   getMessage(): Observable<any> {
     return this.message.asObservable();

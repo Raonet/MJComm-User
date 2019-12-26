@@ -1,0 +1,23 @@
+.chatroom {
+  width: 90%;
+  margin: 0 auto;
+  padding: 24px;
+}
+.chatroom h4 {
+  margin: 0 auto;
+  text-align: center;
+  padding: 5px;
+  background-color: lightslategrey;
+  color: #fff;
+  box-shadow: 6px 6px 0px rgb(18, 57, 95);
+  text-shadow: 2px 1px 1px #000;
+}
+.chatroom .chatlist {
+  background-color: #999;
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+}
+nz-card {
+  cursor: pointer;
+}

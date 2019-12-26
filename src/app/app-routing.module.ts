@@ -10,18 +10,20 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { EditorComponent } from './editor/editor.component';
 import { NewDetailComponent } from './new-detail/new-detail.component';
 import { ForumDetailComponent } from './forum-detail/forum-detail.component';
+import { ChatComponent } from './chat/chat.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/welcome' },
   { path: 'welcome', component: WelcomeComponent },
   { path: 'userdetail', component: MydetailComponent, canActivate: [AuthGuard]},
   { path: 'forum', component: ForumComponent},
-  { path: 'chat', component: ChatroomComponent, canActivate: [AuthGuard]},
+  { path: 'chatroom', component: ChatroomComponent, canActivate: [AuthGuard]},
   { path: 'repair', component: RepairComponent, canActivate: [AuthGuard]},
   { path: 'feedback', component: FeedbackComponent, canActivate: [AuthGuard]},
   { path: 'editor', component: EditorComponent, canActivate: [AuthGuard]},
   { path: 'newdetail', component: NewDetailComponent, canActivate: [AuthGuard]},
-  { path: 'forumdetail', component: ForumDetailComponent, canActivate: [AuthGuard]}
+  { path: 'forumdetail', component: ForumDetailComponent, canActivate: [AuthGuard]},
+  { path: 'chat', component: ChatComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
