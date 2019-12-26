@@ -3,6 +3,7 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 import * as wangEditor from '../../../node_modules/wangeditor/release/wangEditor.js';
 import { WebSocketService } from '../web-socket.service';
 import { ForumHttpService } from '../forum-http.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-chat',
@@ -10,6 +11,7 @@ import { ForumHttpService } from '../forum-http.service';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
+  chatname;
   public sign = 'wang_editor';
 
   private editor: any;
@@ -26,6 +28,7 @@ export class ChatComponent implements OnInit {
     '.cn/t4/appstyle/expression/ext/normal/40/pcmoren_tian_org.png"></p>';
 
   constructor(
+    private routerinfo: ActivatedRoute,
     private websocket: WebSocketService,
     private msg: NzMessageService,
     private forumService: ForumHttpService,
@@ -44,6 +47,7 @@ export class ChatComponent implements OnInit {
     // 创建编辑器
     this.editor.create();
     this.connectMsg();
+    this.chatname = this.routerinfo.snapshot.queryParams.name;
   }
 
   // 编辑器相关配置设置

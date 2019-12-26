@@ -5,7 +5,7 @@
       <ng-template #item let-item>
         <nz-list-item [nzContent]="nzContent">
           <ng-template #nzContent>
-            <nz-card [nzTitle]="item.name" routerLink="/chat">
+            <nz-card [nzTitle]="item.name" routerLink="/chat" [queryParams]="{name:item.name}">
               {{item.description}}
             </nz-card>
           </ng-template>
