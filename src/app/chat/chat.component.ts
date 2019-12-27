@@ -43,13 +43,13 @@ export class ChatComponent implements OnInit {
   editorDescription;
   ngOnInit() {
     this.editor = new wangEditor('#editorMenu', '#editor');
-    console.log(this.editor);
     // 设置编辑器配置
     this.setEditorConfig();
     // 创建编辑器
     this.editor.create();
     this.connectMsg();
     this.chatname = this.routerinfo.snapshot.queryParams.name;
+    this.websocket.getChatInfo(this.chatname);
   }
 
   // 编辑器相关配置设置
