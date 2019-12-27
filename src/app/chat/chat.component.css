@@ -36,6 +36,14 @@
 .mychat {
   text-align: right;
 }
+.otherchat {
+  text-align: left;
+}
+.otherchat img {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+}
 .mychat img {
   width: 30px;
   height: 30px;

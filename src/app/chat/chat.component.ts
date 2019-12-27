@@ -13,6 +13,7 @@ import { ForumHttpService } from '../forum-http.service';
 })
 export class ChatComponent implements OnInit {
   chatname;
+  userid = this.cookies.get('userId');
   public sign = 'wang_editor';
 
   private editor: any;
