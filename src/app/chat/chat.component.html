@@ -2,7 +2,9 @@
   <div class="chatHeader">{{ chatname }}</div>
   <div class="chatContent">
     <div *ngFor="let item of this.websocket.chatlist.data">
-      <p [innerHTML]="item.msg"></p>
+      <span>
+        <p>{{ item.user}}</p>
+      </span>
     </div>
   </div>
   <div class="chatEditor">

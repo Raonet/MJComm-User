@@ -164,7 +164,8 @@ export class ChatComponent implements OnInit {
   sendMessage() {
     this.getContent();
     const message = this.editorContent;
-    const chatdata = {userid: this.cookies.get('userId'), avatar: this.cookies.get('userAvater'), msg: message, time: new Date()};
+    // tslint:disable-next-line: max-line-length
+    const chatdata = {userid: this.cookies.get('userId'), avatar: this.cookies.get('userAvater'), username: this.cookies.get('userName'), msg: message, time: new Date()};
     const chat = {name: this.chatname, data: [chatdata]};
     this.websocket.sendMessage(chat);
   }
