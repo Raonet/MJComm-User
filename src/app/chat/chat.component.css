@@ -33,3 +33,11 @@
   float: right;
   border-color: #333;
 }
+.mychat {
+  text-align: right;
+}
+.mychat img {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+}

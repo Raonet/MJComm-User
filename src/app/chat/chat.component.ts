@@ -168,5 +168,6 @@ export class ChatComponent implements OnInit {
     const chatdata = {userid: this.cookies.get('userId'), avatar: this.cookies.get('userAvater'), username: this.cookies.get('userName'), msg: message, time: new Date()};
     const chat = {name: this.chatname, data: [chatdata]};
     this.websocket.sendMessage(chat);
+    this.editor.txt.html('');
   }
 }
