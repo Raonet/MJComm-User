@@ -5,6 +5,7 @@ import { Subject } from 'rxjs';
 import { NzMessageService } from 'ng-zorro-antd';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ import { HttpHeaders } from '@angular/common/http';
 export class WebSocketService {
   private ws: any;
   private message: Subject<any> = new Subject<any>();
-  constructor(private msg: NzMessageService, private http: HttpClient) { }
+  constructor(private msg: NzMessageService, private http: HttpClient, private sanitizer: DomSanitizer) { }
   chatlist: any = {data: []};
   httpOptions = {
     headers: new HttpHeaders ({
@@ -37,7 +38,10 @@ export class WebSocketService {
     this.ws.on('events', (data) => {
       this.analysisMessage(data);
       this.chatlist = data;
-      console.log(this.chatlist);
+      // tslint:disable-next-line: prefer-for-of
+      for (let i = 0; i < this.chatlist.data.length; i++) {
+        this.chatlist.data[i].msg = this.sanitizer.bypassSecurityTrustHtml(this.chatlist.data[i].msg);
+      }
     });
   }
   sendMessage(data) {
@@ -55,6 +59,10 @@ export class WebSocketService {
     .then( res => {
       this.chatlist = res;
     });
+    // tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < this.chatlist.data.length; i++) {
+      this.chatlist.data[i].msg = this.sanitizer.bypassSecurityTrustHtml(this.chatlist.data[i].msg);
+    }
     return this.chatlist;
   }
 }

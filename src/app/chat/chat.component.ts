@@ -64,12 +64,6 @@ export class ChatComponent implements OnInit {
     this.editor.customConfig.fontNames = this.getFontFamilyConfig();
     // 编辑区域的z-index默认为10000
     // this.editor.customConfig.zIndex = 100;
-    // 配置编辑器内容改变触发方法
-    this.editor.customConfig.onchange = this.editorContentChange;
-    // 编辑器获取到焦点触发方法
-    this.editor.customConfig.onfocus = this.editorOnFocus;
-    // 编辑器失去焦点触发方法
-    this.editor.customConfig.onblur = this.editorOnBlur;
     // 配置服务器端地址
     this.editor.customConfig.uploadImgServer = 'api/upload';
     this.editor.customConfig.uploadFileName = 'file';
@@ -148,22 +142,6 @@ export class ChatComponent implements OnInit {
       'Tahoma',
       'Verdana'
     ];
-  }
-
-  // 富文本编辑器内容变化触发方法
-  editorContentChange = (html) => {
-    console.log(html);
-  }
-
-  // 编辑器获取到焦点触发事件
-  editorOnFocus = () => {
-    console.log('on focus');
-  }
-
-  // 编辑器失去焦点触发事件
-  editorOnBlur = (html) => {
-    console.log('on blur');
-    console.log(html);
   }
 
   // 设置编辑器显示内容

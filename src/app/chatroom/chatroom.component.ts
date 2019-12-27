@@ -15,6 +15,5 @@ export class ChatroomComponent implements OnInit {
   }
   async getChatList() {
     this.data = await this.chatService.getChatRoom();
-    console.log(this.data);
   }
 }
