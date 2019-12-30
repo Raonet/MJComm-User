@@ -19,6 +19,7 @@
   color: #000;
   width: 100%;
   height: 300px;
+  overflow:scroll;
 }
 .wangeditor-box {
   margin: 0;
@@ -36,16 +37,24 @@
 .mychat {
   text-align: right;
 }
+.mychat .username{
+  font-weight: bold;
+}
 .otherchat {
   text-align: left;
+}
+.otherchat .username{
+  font-weight: bold;
 }
 .otherchat img {
   width: 30px;
   height: 30px;
   border-radius: 15px;
+  float:left;
 }
 .mychat img {
   width: 30px;
   height: 30px;
   border-radius: 15px;
+  float: right;
 }
