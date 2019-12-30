@@ -7,12 +7,14 @@
   width: 100%;
   height: 36px;
   line-height: 36px;
-  font-size: 30px;
+  font-size: 24px;
   font-weight: bold;
   text-align: center;
   border-radius: 15px;
-  text-shadow: 1px 1px 2px;
-  margin: 10px;
+  margin-top: 12px;
+  color: #fff;
+  background-color: lightseagreen;
+  box-shadow:0 8px 0 seagreen;
 }
 .edit {
   margin: 10px 0 10px 0;

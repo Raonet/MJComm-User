@@ -24,7 +24,6 @@ export class ForumDetailComponent implements OnInit {
   }
   async getNews() {
     const data = this.forumService.data;
-    console.log(data);
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < data.length; i++) {
       if (data[i]._id === this.id) {
