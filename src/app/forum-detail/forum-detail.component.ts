@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ForumHttpService } from '../forum-http.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-forum-detail',
@@ -9,17 +10,16 @@ import { ForumHttpService } from '../forum-http.service';
 })
 export class ForumDetailComponent implements OnInit {
 
-  constructor(private routerinfo: ActivatedRoute, private forumService: ForumHttpService) { }
+  constructor(private routerinfo: ActivatedRoute, private forumService: ForumHttpService, private sanitizer: DomSanitizer) { }
   id;
   detail = {
     _id: '',
-    title: '',
     content: '',
+    title: '',
     createtime: '',
   };
   ngOnInit() {
     this.id = this.routerinfo.snapshot.queryParams.id;
-    console.log(this.id);
     this.getNews();
   }
   async getNews() {
@@ -27,6 +27,7 @@ export class ForumDetailComponent implements OnInit {
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < data.length; i++) {
       if (data[i]._id === this.id) {
+        data[i].content = this.sanitizer.bypassSecurityTrustHtml(data[i].content);
         this.detail = data[i];
         return ;
       }
