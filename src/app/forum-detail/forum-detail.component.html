@@ -1,8 +1,8 @@
 <div class="forumdetail">
   <div class="detail">
-    <h2>{{ detail.title }}</h2>
-    <p>编辑于:{{ detail.createtime }}</p>
-    <div class="text" [innerHTML]="detail.content">
+    <h2>{{ detail.forum.title }}</h2>
+    <p>编辑于:{{ detail.forum.createtime }}</p>
+    <div class="text" [innerHTML]="detail.forum.content">
     </div>
   </div>
 </div>

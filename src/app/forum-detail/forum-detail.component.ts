@@ -12,25 +12,19 @@ export class ForumDetailComponent implements OnInit {
 
   constructor(private routerinfo: ActivatedRoute, private forumService: ForumHttpService, private sanitizer: DomSanitizer) { }
   id;
-  detail = {
-    _id: '',
-    content: '',
-    title: '',
-    createtime: '',
+  detail: any = {
+    auther: '',
+    comment: '',
+    forum: '',
+    praise: '',
+    step: '',
   };
   ngOnInit() {
     this.id = this.routerinfo.snapshot.queryParams.id;
-    this.getNews();
+    this.getForum(this.id);
   }
-  async getNews() {
-    const data = this.forumService.data;
-    // tslint:disable-next-line: prefer-for-of
-    for (let i = 0; i < data.length; i++) {
-      if (data[i]._id === this.id) {
-        data[i].content = this.sanitizer.bypassSecurityTrustHtml(data[i].content);
-        this.detail = data[i];
-        return ;
-      }
-    }
+  async getForum(id) {
+    this.detail = await this.forumService.getForumDetail(id);
+    this.detail.forum.content = this.sanitizer.bypassSecurityTrustHtml(this.detail.forum.content);
   }
 }

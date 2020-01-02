@@ -36,27 +36,6 @@ export class MydetailComponent implements OnInit {
     this.isVisible = false;
   }
 
-  private getBase64(img: File, callback: (img: string) => void): void {
-    const reader = new FileReader();
-    // tslint:disable-next-line: no-non-null-assertion
-    reader.addEventListener('load', () => callback(reader.result!.toString()));
-    reader.readAsDataURL(img);
-  }
-
-  private checkImageDimension(file: File): Promise<boolean> {
-    return new Promise(resolve => {
-      const img = new Image(); // create image
-      img.src = window.URL.createObjectURL(file);
-      img.onload = () => {
-        const width = img.naturalWidth;
-        const height = img.naturalHeight;
-        // tslint:disable-next-line: no-non-null-assertion
-        window.URL.revokeObjectURL(img.src!);
-        resolve(width === height && width >= 300);
-      };
-    });
-  }
-
   handleChange(info: { file: UploadFile }): void {
     switch (info.file.status) {
       case 'uploading':

@@ -30,4 +30,11 @@ export class ForumHttpService {
     .then(res => { forums = res; this.data = res; });
     return forums;
   }
+  async getForumDetail(id) {
+    let forum;
+    await this.http.get(`api/forum/getforum/${id}`).toPromise()
+    .then(res => { forum = res; });
+    console.log(forum);
+    return forum;
+  }
 }
