@@ -1,12 +1,12 @@
 <div class="repair">
   <div>
-    <nz-select [(ngModel)]="selectedProvince" (ngModelChange)="provinceChange($event)">
+    <nz-select [(ngModel)]="selectedProvince" >
       <nz-option *ngFor="let p of provinceData" [nzValue]="p" [nzLabel]="p"></nz-option>
     </nz-select>
     <nz-select [(ngModel)]="selectedCity">
       <nz-option *ngFor="let c of cityData[selectedProvince]" [nzValue]="c" [nzLabel]="c"></nz-option>
     </nz-select>
-    <nz-select [(ngModel)]="selectedAbc" (ngModelChange)="provinceChange($event)">
+    <nz-select [(ngModel)]="selectedAbc" >
       <nz-option *ngFor="let b of provinceAbc" [nzValue]="b" [nzLabel]="b"></nz-option>
     </nz-select>
     <nz-input-number [(ngModel)]="placeValue" [nzMin]="100" [nzMax]="999" [nzStep]="1"></nz-input-number>

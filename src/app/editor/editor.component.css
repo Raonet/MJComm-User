@@ -1,4 +1,4 @@
-@import "../../../node_modules/wangeditor/release/wangEditor.css";
+@import "../../../node_modules/wangeditor/release/wangEditor.min.css";
 .editor {
   width: 80%;
   margin: 0 auto;

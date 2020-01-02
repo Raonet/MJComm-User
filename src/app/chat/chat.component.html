@@ -1,7 +1,7 @@
 <div class="chat">
   <div class="chatHeader">{{ chatname }}</div>
   <div class="chatContent">
-    <div *ngFor="let item of this.websocket.chatlist.data">
+    <div *ngFor="let item of data">
       <span [ngClass]="{'mychat': item.userid === userid, 'otherchat': item.userid !== userid}">
         <p class="username">{{ item.username}} <img [src]="item.avatar" alt=""></p>
         <p [innerHTML]="item.msg" class="usermsg"></p>

@@ -1,6 +1,6 @@
 <div class="menu">
   <button nz-button nzType="primary" (click)="showMenu = !showMenu" nzGhost>菜单</button>
-  <ul nz-menu nzTheme="light" nzMode="vertical" [nzInlineCollapsed]="isCollapsed" *ngIf="showMenu">
+  <ul nz-menu nzTheme="light" nzMode="vertical" *ngIf="showMenu">
     <li nz-submenu nzTitle="社区主页" nzIcon="smile">
         <ul>
           <li nz-menu-item nzMatchRouter>
