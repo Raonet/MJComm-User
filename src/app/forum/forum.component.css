@@ -14,7 +14,8 @@
   margin-top: 12px;
   color: #fff;
   background-color: lightseagreen;
-  box-shadow:0 8px 0 seagreen;
+  box-shadow:0 8px 0 rgb(87, 126, 87);
+  text-shadow: 2px 2px 1px #666;
 }
 .edit {
   margin: 10px 0 10px 0;

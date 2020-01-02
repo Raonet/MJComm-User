@@ -14,7 +14,6 @@ import { ForumHttpService } from '../forum-http.service';
 export class ChatComponent implements OnInit {
   chatname;
   userid = this.cookies.get('userId');
-  data: any = this.websocket.chatlist.data;
   public sign = 'wang_editor';
 
   private editor: any;
