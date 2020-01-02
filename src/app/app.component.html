@@ -6,20 +6,25 @@
         <div class="sidebar-logo">
           <a href="#" target="_blank">
             <h1>M J 社 区</h1>
-            <img src="../assets/社区.svg" alt="logo">
+            <img src="../assets/社区.svg" alt="logo" />
           </a>
         </div>
         <span class="login">
-          <app-user-login (isLogin)="onLogin($event)" *ngIf="isLogin"></app-user-login>
+          <app-user-login
+            (isLogin)="onLogin($event)"
+            *ngIf="isLogin"
+          ></app-user-login>
           <app-register *ngIf="isLogin"></app-register>
           <div class="avater" *ngIf="!isLogin">
             <a nz-dropdown [nzDropdownMenu]="menu">
               <img [src]="avaterimg" routerLink="/userdetail" />
             </a>
-            <nz-dropdown-menu #menu="nzDropdownMenu" >
+            <nz-dropdown-menu #menu="nzDropdownMenu">
               <ul nz-menu nzSelectable>
                 <li nz-menu-item routerLink="/userdetail">我的主页</li>
-                <li nz-menu-item (click)="outLogin()" routerLink="/">退出登录</li>
+                <li nz-menu-item (click)="outLogin()" routerLink="/">
+                  退出登录
+                </li>
               </ul>
             </nz-dropdown-menu>
           </div>
