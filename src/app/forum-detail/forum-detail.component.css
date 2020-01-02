@@ -1,12 +1,18 @@
 .forumdetail {
   width: 100%;
   text-align: center;
+  max-width: 100%;
 }
 .detail {
   background-color: #f6f6f6;
   width: 90%;
+  max-width: 90%;
   padding: 24px;
   margin: 24px auto;
+  word-wrap:break-word;
+  word-break:break-all;
+  overflow: hidden;
+  min-height: 80vh;
 }
 .forumdetail .detail h2 {
   font-size: 26px;
@@ -18,4 +24,28 @@
 }
 .forumdetail .detail .text {
   margin: 1% 0 0 0;
+}
+.detail .auther {
+  font-weight: bold;
+  font-size: 16px;
+  color: rgb(114, 155, 209);
+  cursor: pointer;
+}
+.usershow img{
+  width: 90px;
+  height: 90px;
+  border-radius: 45px;
+}
+.comment {
+  min-width: 250px;
+  max-width: 500px;
+  float: right;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  margin-left:-125px;
+}
+.comment button {
+  float: right;
+  margin-top: 5px;
 }

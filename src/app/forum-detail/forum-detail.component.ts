@@ -19,6 +19,8 @@ export class ForumDetailComponent implements OnInit {
     praise: '',
     step: '',
   };
+  comment;
+  visible = false;
   ngOnInit() {
     this.id = this.routerinfo.snapshot.queryParams.id;
     this.getForum(this.id);
@@ -26,5 +28,13 @@ export class ForumDetailComponent implements OnInit {
   async getForum(id) {
     this.detail = await this.forumService.getForumDetail(id);
     this.detail.forum.content = this.sanitizer.bypassSecurityTrustHtml(this.detail.forum.content);
+  }
+
+  open(): void {
+    this.visible = true;
+  }
+
+  close(): void {
+    this.visible = false;
   }
 }

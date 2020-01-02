@@ -1,8 +1,35 @@
 <div class="forumdetail">
   <div class="detail">
     <h2>{{ detail.forum.title }}</h2>
-    <p>编辑于:{{ detail.forum.createtime }}</p>
+    <p class="auther" (click)="open()">作者:{{ detail.auther.user }}</p>
+    <nz-drawer
+      [nzClosable]="false"
+      [nzVisible]="visible"
+      nzPlacement="right"
+      nzTitle="作者详情"
+      (nzOnClose)="close()"
+    >
+    <div>
+      <div class="usershow">
+        <h3>用户名: <p>{{ detail.auther.user }}</p> </h3>
+      </div>
+      <h2>个人简介</h2>
+      <p>{{ detail.auther.description }}</p>
+      <h2>
+        注册时间:
+      </h2>
+      {{ detail.auther.createTime }}
+      <h2>最近参与的帖子</h2>
+      <div>暂无</div>
+      <h2>创建的帖子</h2>
+      <div>暂无</div>
+    </div>
+    </nz-drawer>
     <div class="text" [innerHTML]="detail.forum.content">
+    </div>
+    <div class="comment">
+      <textarea rows="4" nz-input [(ngModel)]="comment"></textarea>
+      <button nz-button nzType="primary">评论</button>
     </div>
   </div>
 </div>
