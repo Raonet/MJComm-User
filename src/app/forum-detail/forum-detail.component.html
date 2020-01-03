@@ -27,9 +27,25 @@
     </nz-drawer>
     <div class="text" [innerHTML]="detail.forum.content">
     </div>
-    <div class="comment">
-      <textarea rows="4" nz-input [(ngModel)]="comment"></textarea>
-      <button nz-button nzType="primary">评论</button>
+    <div class="bottom">
+
     </div>
+  </div>
+  <div class="comment" *ngIf="isShowComment">
+    <textarea rows="4" nz-input [(ngModel)]="comment"></textarea>
+    <button nz-button nzType="primary">评论</button>
+  </div>
+  <div  class="interaction" >
+    <p>赞:{{ praises }}</p>
+    <p>踩:{{ step }}</p>
+    <nz-badge nzColor="#2db7f5">
+      <img src="../../assets/评论.png" (click)="showComment()" title="评论">
+    </nz-badge>
+    <nz-badge nzColor="#87d068">
+      <img src="../../assets/爱心.png" (click)="givePraise()" title="点赞">
+    </nz-badge>
+    <nz-badge nzColor="pink">
+      <img src="../../assets/踩.png" (click)="giveStep()" title="踩">
+    </nz-badge>
   </div>
 </div>

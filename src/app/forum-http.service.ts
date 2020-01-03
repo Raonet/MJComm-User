@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ForumHttpService {
 
-  constructor(private http: HttpClient, private cookies: CookieService) { }
+  constructor(private http: HttpClient, private cookies: CookieService, private message: NzMessageService) { }
   data;
   httpOptions = {
     headers: new HttpHeaders({
@@ -36,5 +37,29 @@ export class ForumHttpService {
     .then(res => { forum = res; });
     console.log(forum);
     return forum;
+  }
+  async givePraise(forumid) {
+    const uid = this.cookies.get('userId');
+    const uname = this.cookies.get('userName');
+    let praise;
+    await this.http.post('api/forum/praise', {forumId: forumid, praises: {userid: uid, name: uname}}, this.httpOptions).toPromise()
+    .then(res => { praise = res; });
+    if (praise === 0) {
+      this.message.info('点赞失败，你已点过赞!');
+    } else {
+      this.message.info('点赞成功!');
+    }
+  }
+  async giveStep(forumid) {
+    const uid = this.cookies.get('userId');
+    const uname = this.cookies.get('userName');
+    let step;
+    await this.http.post('api/forum/step', {forumId: forumid, steps: {userid: uid, name: uname}}, this.httpOptions).toPromise()
+    .then(res => { step = res; });
+    if (step === 0) {
+      this.message.info('你已经踩过这篇文章啦!');
+    } else {
+      this.message.info('成功的踩了一下!');
+    }
   }
 }

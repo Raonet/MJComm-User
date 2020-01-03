@@ -2,17 +2,19 @@
   width: 100%;
   text-align: center;
   max-width: 100%;
+  background-color: #f6f6f6;
+  min-height: 100vh;
 }
 .detail {
-  background-color: #f6f6f6;
+  background-color: #fff;
   width: 90%;
   max-width: 90%;
-  padding: 24px;
-  margin: 24px auto;
+  padding: 48px 10px 10px 10px;
+  margin: 0 auto;
   word-wrap:break-word;
   word-break:break-all;
   overflow: hidden;
-  min-height: 80vh;
+  min-height: 90vh;
 }
 .forumdetail .detail h2 {
   font-size: 26px;
@@ -22,8 +24,9 @@
   margin: 2% 0 0 15%;
   color:#666;
 }
-.forumdetail .detail .text {
-  margin: 1% 0 0 0;
+.forumdetail .text {
+  max-width: 500px;
+  margin: 0 auto;
 }
 .detail .auther {
   font-weight: bold;
@@ -40,12 +43,25 @@
   min-width: 250px;
   max-width: 500px;
   float: right;
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
-  margin-left:-125px;
+  position: fixed;
+  bottom: 0;
+  left: 90%;
+  margin-left:-250px;
 }
 .comment button {
   float: right;
   margin-top: 5px;
 }
+.interaction {
+  position: fixed;
+  right: 5%;
+  bottom: 20%;
+}
+.interaction img{
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  cursor: pointer;
+  background-color: #eee;
+}
+
