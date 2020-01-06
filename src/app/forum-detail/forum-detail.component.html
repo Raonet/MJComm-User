@@ -33,7 +33,7 @@
   </div>
   <div class="comment" *ngIf="isShowComment">
     <textarea rows="4" nz-input [(ngModel)]="comment"></textarea>
-    <button nz-button nzType="primary">评论</button>
+    <button nz-button nzType="primary" (click)="giveComment()">评论</button>
   </div>
   <div  class="interaction" >
     <p>赞:{{ praises }}</p>
