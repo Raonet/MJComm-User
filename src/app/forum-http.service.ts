@@ -46,8 +46,10 @@ export class ForumHttpService {
     .then(res => { praise = res; });
     if (praise === 0) {
       this.message.info('点赞失败，你已点过赞!');
+      return 0;
     } else {
       this.message.info('点赞成功!');
+      return 1;
     }
   }
   async giveStep(forumid) {
@@ -58,8 +60,14 @@ export class ForumHttpService {
     .then(res => { step = res; });
     if (step === 0) {
       this.message.info('你已经踩过这篇文章啦!');
+      return 0;
     } else {
       this.message.info('成功的踩了一下!');
+      return 1;
     }
+  }
+  async giveComment(forumid, comments) {
+    // tslint:disable-next-line: max-line-length
+    const data = {forumId: forumid, comment: [{userId: this.cookies.get('userId'), userName: this.cookies.get('userName'), comment: comments}]};
   }
 }

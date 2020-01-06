@@ -46,10 +46,19 @@ export class ForumDetailComponent implements OnInit {
   showComment() {
     this.isShowComment = !this.isShowComment;
   }
-  givePraise() {
-    this.forumService.givePraise(this.id);
+  async givePraise() {
+    const praise = await this.forumService.givePraise(this.id);
+    if (praise === 1) {
+      this.praises ++;
+    }
   }
-  giveStep() {
-    this.forumService.giveStep(this.id);
+  async giveStep() {
+    const step = await this.forumService.giveStep(this.id);
+    if (step === 1) {
+      this.step ++;
+    }
+  }
+  async giveComment() {
+    this.forumService.giveComment(this.id, this.comment);
   }
 }
