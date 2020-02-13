@@ -31,21 +31,37 @@
 
     </div>
   </div>
+  <div class="green__line"></div>
+  <div class="allcomment">
+    <nz-list [nzDataSource]="detail.comment.comments" [nzRenderItem]="item" [nzItemLayout]="'horizontal'" [nzLoading]="loading">
+      <ng-template #item let-item>
+        <nz-list-item>
+          <nz-list-item-meta
+            [nzTitle]="item.userName"
+            [nzAvatar]="item.avatar"
+            [nzDescription]="item.content"
+          >
+          </nz-list-item-meta>
+        </nz-list-item>
+      </ng-template>
+    </nz-list>
+  </div>
   <div class="comment" *ngIf="isShowComment">
     <textarea rows="4" nz-input [(ngModel)]="comment"></textarea>
-    <button nz-button nzType="primary" (click)="giveComment()">评论</button>
+    <button nz-button nzType="primary" (click)="giveComment()" *ngIf="!inComment">评论</button>
+    <button nz-button (click)="giveComment()" *ngIf="inComment" disabled>评论</button>
   </div>
   <div  class="interaction" >
-    <p>赞:{{ praises }}</p>
-    <p>踩:{{ step }}</p>
     <nz-badge nzColor="#2db7f5">
       <img src="../../assets/评论.png" (click)="showComment()" title="评论">
     </nz-badge>
     <nz-badge nzColor="#87d068">
       <img src="../../assets/爱心.png" (click)="givePraise()" title="点赞">
+      赞:{{ praises }}
     </nz-badge>
     <nz-badge nzColor="pink">
       <img src="../../assets/踩.png" (click)="giveStep()" title="踩">
+      踩:{{ step }}
     </nz-badge>
   </div>
 </div>

@@ -47,6 +47,7 @@
   bottom: 0;
   left: 90%;
   margin-left:-250px;
+  z-index: 999;
 }
 .comment button {
   float: right;
@@ -64,4 +65,25 @@
   cursor: pointer;
   background-color: #eee;
 }
-
+.demo-loadmore-list {
+  min-height: 350px;
+}
+.loadmore {
+  text-align: center;
+  margin-top: 12px;
+  height: 32px;
+  line-height: 32px;
+}
+.allcomment {
+  background-color: #fff;
+  width: 90%;
+  margin: 0 auto;
+  text-align: left;
+}
+.green__line {
+  height: 4px;
+  width: 90%;
+  background: aquamarine;
+  border-radius: 2px;
+  margin: 0 auto;
+}

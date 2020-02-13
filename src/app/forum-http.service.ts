@@ -35,7 +35,6 @@ export class ForumHttpService {
     let forum;
     await this.http.get(`api/forum/getforum/${id}`).toPromise()
     .then(res => { forum = res; });
-    console.log(forum);
     return forum;
   }
   async givePraise(forumid) {
@@ -68,6 +67,18 @@ export class ForumHttpService {
   }
   async giveComment(forumid, comments) {
     // tslint:disable-next-line: max-line-length
-    const data = {forumId: forumid, comment: [{userId: this.cookies.get('userId'), userName: this.cookies.get('userName'), comment: comments}]};
+    const data = {forumId: forumid, comment: {userId: this.cookies.get('userId'), userName: this.cookies.get('userName'), content: comments, date: new Date(), avatar: this.cookies.get('userAvater')}};
+    await this.http.post('api/forum/comments', data, this.httpOptions ).toPromise()
+    .then(res => {
+      const comp: any = res;
+      if (comp.ok === 1) {
+        this.message.info('评论成功！');
+        return 0;
+      } else {
+        this.message.info('评论失败，请稍后再试！');
+        return 0;
+      }
+    } )
+    .catch(error => {console.log(error); });
   }
 }

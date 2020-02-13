@@ -24,12 +24,14 @@ export class ForumDetailComponent implements OnInit {
   comment;
   visible = false;
   isShowComment = false;
+  inComment = false;
   ngOnInit() {
     this.id = this.routerinfo.snapshot.queryParams.id;
     this.getForum(this.id);
   }
   async getForum(id) {
     this.detail = await this.forumService.getForumDetail(id);
+    console.log(this.detail);
     this.detail.forum.content = this.sanitizer.bypassSecurityTrustHtml(this.detail.forum.content);
     this.praises = this.detail.praise.praises.length;
     this.step = this.detail.step.steps.length;
@@ -59,6 +61,9 @@ export class ForumDetailComponent implements OnInit {
     }
   }
   async giveComment() {
-    this.forumService.giveComment(this.id, this.comment);
+    this.inComment = true;
+    await this.forumService.giveComment(this.id, this.comment);
+    this.getForum(this.id);
+    this.inComment = false;
   }
 }
