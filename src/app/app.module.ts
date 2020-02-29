@@ -24,6 +24,7 @@ import { EditorComponent } from './editor/editor.component';
 import { NewDetailComponent } from './new-detail/new-detail.component';
 import { ForumDetailComponent } from './forum-detail/forum-detail.component';
 import { ChatComponent } from './chat/chat.component';
+import { FeiyanComponent } from './feiyan/feiyan.component';
 
 registerLocaleData(zh);
 
@@ -43,6 +44,7 @@ registerLocaleData(zh);
     NewDetailComponent,
     ForumDetailComponent,
     ChatComponent,
+    FeiyanComponent,
   ],
   imports: [
     BrowserModule,

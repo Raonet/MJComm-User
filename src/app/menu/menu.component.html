@@ -1,5 +1,5 @@
 <div class="menu">
-  <button nz-button nzType="primary" (click)="showMenu = !showMenu" nzGhost="true"><i nz-icon nzType="home"></i></button>
+  <button nz-button nzType="primary" (click)="showMenu = !showMenu" nzGhost="true" style="box-shadow: 1px 1px 1px;"><i nz-icon nzType="home"></i></button>
   <ul nz-menu nzTheme="light" nzMode="vertical" *ngIf="showMenu">
     <li nz-submenu nzTitle="社区主页" nzIcon="smile">
         <ul>
@@ -36,6 +36,13 @@
     <ul>
       <li nz-menu-item nzMatchRouter>
         <a routerLink="/feedback">反馈</a>
+      </li>
+    </ul>
+  </li>
+  <li nz-submenu  nzTitle="肺炎实况" nzIcon="heat-map">
+    <ul>
+      <li nz-menu-item nzMatchRouter>
+        <a routerLink="/feiyan">肺炎实况</a>
       </li>
     </ul>
   </li>

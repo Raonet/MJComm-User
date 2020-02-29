@@ -21,6 +21,10 @@ export class MydetailComponent implements OnInit {
   userdes = this.cookies.get('userDescription');
   userid = this.cookies.get('userId');
   ngOnInit() {
+    this.getCJForum();
+  }
+  getCJForum() {
+    this.loginService.getCJForum(this.userid);
   }
   showModal(): void {
     this.isVisible = true;

@@ -11,6 +11,7 @@ import { EditorComponent } from './editor/editor.component';
 import { NewDetailComponent } from './new-detail/new-detail.component';
 import { ForumDetailComponent } from './forum-detail/forum-detail.component';
 import { ChatComponent } from './chat/chat.component';
+import { FeiyanComponent } from './feiyan/feiyan.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/welcome' },
@@ -23,7 +24,8 @@ const routes: Routes = [
   { path: 'editor', component: EditorComponent, canActivate: [AuthGuard]},
   { path: 'newdetail', component: NewDetailComponent, canActivate: [AuthGuard]},
   { path: 'forumdetail', component: ForumDetailComponent, canActivate: [AuthGuard]},
-  { path: 'chat', component: ChatComponent, canActivate: [AuthGuard]}
+  { path: 'chat', component: ChatComponent, canActivate: [AuthGuard]},
+  { path: 'feiyan', component: FeiyanComponent}
 ];
 
 @NgModule({

@@ -45,6 +45,7 @@ export class LoginHttpService {
       return this.userLoginData;
     }
     this.inCookie();
+    console.log(this.userLoginData);
     return this.userLoginData;
   }
   async postRegister(useremail, password, username, phones) {
@@ -59,5 +60,14 @@ export class LoginHttpService {
     await this.http.post('api/user/update', data, this.httpOptions).toPromise()
     .then(res => { ok = res; } );
     return ok;
+  }
+  async getCJForum(userid) {
+    await this.http.get(`api/user/cjforum/${userid}`, this.httpOptions).toPromise()
+    .then(res => {
+      console.log(res);
+    })
+    .catch(error => {
+      console.log(error);
+    });
   }
 }

@@ -7,5 +7,14 @@
     "pathRewrite":{
       "^/api":""
     }
+  },
+  "/feiyan":{
+    "target":"http://c.m.163.com/ug/api/wuhan/app/index/",
+    "secure":false,
+    "logLevel":"debug",
+    "changeOrigin":true,
+    "pathRewrite":{
+      "^/feiyan":""
+    }
   }
 }
