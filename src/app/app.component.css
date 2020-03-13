@@ -35,7 +35,7 @@
   padding-left: 24px;
   overflow: hidden;
   line-height: 64px;
-  background: #fff;
+  background: rgb(135, 171, 212);
   transition: all .3s;
   display: inline-block;
 }
@@ -50,7 +50,7 @@
 .sidebar-logo h1 {
   display: inline-block;
   margin: 0;
-  color: #000;
+  color: #fff;
   font-weight: 600;
   font-size: 14px;
   font-family: Avenir,Helvetica Neue,Arial,Helvetica,sans-serif;
@@ -68,7 +68,7 @@ nz-header {
   position: relative;
   height: 64px;
   padding: 0;
-  background: #fff;
+  background:  rgb(135, 171, 212);
   box-shadow: 0 1px 4px rgba(0,21,41,.08);
 }
 

@@ -11,18 +11,9 @@ export class WelcomeComponent implements OnInit {
   isVisible = false;
   data ;
   datalist;
-  width = document.body.clientWidth - 20;
-  height = 480;
   ngOnInit() {
     this.getHomeImg();
     this.getNews();
-    this.giveHight();
-  }
-  async giveHight() {
-    if (this.width < 600 ) {
-      this.height = 160;
-      this.width = document.body.clientWidth;
-    }
   }
   async getHomeImg() {
     const homeimg = await this.deHttpService.getHomeImgs();

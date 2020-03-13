@@ -1,7 +1,9 @@
 <div nz-row>
-  <div nz-col nzSpan="24">
-    <div class="banner" [ngStyle]="{'height': height + 'px'}">
-      <div class="carousel" [ngStyle]="{'width': width +'px'}">
+  <div nz-col [nzSpan]="18" [nzPush]="6">
+  </div>
+  <div nz-col [nzSpan]="6" [nzPull]="18">
+    <div class="banner"  style="width: 100%;">
+      <div class="carousel" style="height: 100%;">
         <nz-carousel nzAutoPlay>
           <div nz-carousel-content *ngFor="let index of array" >
             <img [src]="index.url" alt="" />
@@ -9,6 +11,10 @@
         </nz-carousel>
       </div>
     </div>
+  </div>
+</div>
+<div nz-row>
+  <div nz-col nzSpan="8">
     <div class="contain">
       <div class="menu">MJ社区新闻</div>
       <h3 [ngStyle]="{ margin: '16px 0' }"></h3>
@@ -27,6 +33,16 @@
           </nz-list-item>
         </ng-template>
       </nz-list>
+    </div>
+  </div>
+  <div nz-col nzSpan="8">
+    <div class="contain">
+      <div class="menu__forum">MJ热帖</div>
+    </div>
+  </div>
+  <div nz-col nzSpan="8">
+    <div class="contain">
+      <div class="menu__chat">MJ聊天室</div>
     </div>
   </div>
 </div>
