@@ -1,9 +1,7 @@
-<div nz-row>
+<div nz-row class="index__header">
   <div nz-col [nzSpan]="18" [nzPush]="6">
-  </div>
-  <div nz-col [nzSpan]="6" [nzPull]="18">
-    <div class="banner"  style="width: 100%;">
-      <div class="carousel" style="height: 100%;">
+    <div class="banner">
+      <div class="carousel" >
         <nz-carousel nzAutoPlay>
           <div nz-carousel-content *ngFor="let index of array" >
             <img [src]="index.url" alt="" />
@@ -12,37 +10,31 @@
       </div>
     </div>
   </div>
-</div>
-<div nz-row>
-  <div nz-col nzSpan="8">
+  <div nz-col [nzSpan]="6" [nzPull]="18">
     <div class="contain">
       <div class="menu">MJ社区新闻</div>
       <h3 [ngStyle]="{ margin: '16px 0' }"></h3>
-      <nz-list
-        [nzDataSource]="data"
-        nzBordered
-        nzSize="large"
-        [nzHeader]="'社区新闻'"
-        [nzRenderItem]="item"
-      >
+      <nz-list [nzDataSource]="data" nzBordered nzSize="large" [nzHeader]="'社区新闻'" [nzRenderItem]="item">
         <ng-template #item let-item>
-          <nz-list-item [nzContent]="content" class="point" >
+          <nz-list-item [nzContent]="content" class="point">
             <ng-template #content>
-              <div routerLink="/newdetail"  [queryParams]="{id:item._id}">{{ item.title }}</div>
+              <div routerLink="/newdetail" [queryParams]="{id:item._id}">{{ item.title }}</div>
             </ng-template>
           </nz-list-item>
         </ng-template>
       </nz-list>
     </div>
   </div>
-  <div nz-col nzSpan="8">
+</div>
+<div nz-row sytle="">
+  <div nz-col nzSpan="12">
     <div class="contain">
-      <div class="menu__forum">MJ热帖</div>
+      <app-forum></app-forum>
     </div>
   </div>
-  <div nz-col nzSpan="8">
+  <div nz-col nzSpan="12">
     <div class="contain">
-      <div class="menu__chat">MJ聊天室</div>
+      <app-chatroom></app-chatroom>
     </div>
   </div>
 </div>

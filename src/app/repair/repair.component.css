@@ -27,10 +27,10 @@ nz-select {
   width: 120px;
 }
 .question {
-  width: 80%;
+  width: 300px;
   margin: 0 auto;
 }
 button {
   margin-top: 5px;
-  float: right;
+  margin:5px 0px 5px 240px;
 }

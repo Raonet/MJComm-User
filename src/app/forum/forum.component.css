@@ -1,6 +1,9 @@
 .forum {
-  width: 90%;
   margin: 0 auto;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: fixed;
+  background-size: 100%;
   /* padding: 24px; */
 }
 .forumTitle {

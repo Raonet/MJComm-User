@@ -14,3 +14,8 @@ fieldset,img { border:0 ; max-width: 100%;}
 caption,th { text-align:left }
 /* Removes quotation marks from q */
 q:before,q:after { content:”}
+
+body {
+  background: #eee;
+}
+
