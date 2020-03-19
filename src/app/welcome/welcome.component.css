@@ -38,7 +38,7 @@ h3 {
   font-size: 20px;
   line-height: 36px;
   margin: 0 auto;
-  box-shadow: 7px 7px 1px #333;
+  box-shadow: 6px 6px 1px rgb(88, 114, 103);
 }
 .carousel img {
   width: 100%;

@@ -1,29 +1,19 @@
-<!-- <div class="feiyan">
-  <nz-table #expandTable [nzData]="listOfMapData">
-    <thead>
-      <tr>
-        <th nzWidth="40%">Name</th>
-        <th nzWidth="30%">Age</th>
-        <th>Address</th>
-      </tr>
-    </thead>
-    <tbody>
-      <ng-container *ngFor="let data of expandTable.data">
-        <ng-container *ngFor="let item of mapOfExpandedData[data.key]">
-          <tr *ngIf="(item.parent && item.parent.expand) || !item.parent">
-            <td
-              [nzIndentSize]="item.level * 20"
-              [nzShowExpand]="!!item.children"
-              [(nzExpand)]="item.expand"
-              (nzExpandChange)="collapse(mapOfExpandedData[data.key], item, $event)"
-            >
-              {{ item.name }}
-            </td>
-            <td>{{ item.age }}</td>
-            <td>{{ item.address }}</td>
-          </tr>
-        </ng-container>
-      </ng-container>
-    </tbody>
-  </nz-table>
-</div> -->
+<div class="feiyan__title">肺炎辟谣专区</div>
+<div class="feiyan">
+  <nz-list [nzDataSource]="FeiyanData.newslist" [nzItemLayout]="'vertical'" [nzRenderItem]="item" [nzPagination]="pagination"
+    [nzFooter]="footer">
+    <ng-template #item let-item>
+      <nz-list-item [nzContent]="item.desc" [nzExtra]="extra">
+        <nz-list-item-meta [nzTitle]="nzTitle" [nzDescription]="item.title">
+          <ng-template #nzTitle>来源：{{ item.author }} <div class="authenticity">{{  }}</div></ng-template>
+        </nz-list-item-meta>
+        <ng-template #extra>
+          <img width="272" alt="logo" src="{{item.imgsrc}}" />
+        </ng-template>
+      </nz-list-item>
+    </ng-template>
+    <ng-template #pagination>
+      <nz-pagination [nzPageIndex]="1" [nzTotal]="50" (nzPageIndexChange)="loadData($event)"></nz-pagination>
+    </ng-template>
+  </nz-list>
+</div>
