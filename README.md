@@ -4,7 +4,7 @@
 
 ## 运行项目
 
-1.git clone
+1.git clone https://github.com/Raonet/MJComm-angular.git
 
 2.npm install
 
