@@ -1,3 +1,7 @@
+:host {
+  position: relative;
+  background: #fff;
+}
 .forum {
   margin: 0 auto;
   background-color: #fff;

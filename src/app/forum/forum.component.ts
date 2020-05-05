@@ -16,5 +16,6 @@ export class ForumComponent implements OnInit {
     let forum;
     await this.forumService.getForums().then(res => {forum = res; } );
     this.data = forum;
+    console.log(forum);
   }
 }

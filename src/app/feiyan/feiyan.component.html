@@ -5,15 +5,12 @@
     <ng-template #item let-item>
       <nz-list-item [nzContent]="item.desc" [nzExtra]="extra">
         <nz-list-item-meta [nzTitle]="nzTitle" [nzDescription]="item.title">
-          <ng-template #nzTitle>来源：{{ item.author }} <div class="authenticity">{{  }}</div></ng-template>
+          <ng-template #nzTitle>来源：{{ item.author }} <div class="authenticity"></div></ng-template>
         </nz-list-item-meta>
         <ng-template #extra>
           <img width="272" alt="logo" src="{{item.imgsrc}}" />
         </ng-template>
       </nz-list-item>
-    </ng-template>
-    <ng-template #pagination>
-      <nz-pagination [nzPageIndex]="1" [nzTotal]="50" (nzPageIndexChange)="loadData($event)"></nz-pagination>
     </ng-template>
   </nz-list>
 </div>
