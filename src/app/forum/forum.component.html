@@ -5,7 +5,7 @@
       <button nz-button nzType="primary" nzGhost class="tiezi" routerLink="/editor">发个帖子</button>
       <div class="search">
         <nz-input-group [nzSuffix]="suffixIconSearch">
-          <input type="text" nz-input placeholder="搜索帖子" />
+          <input type="text" nz-input placeholder="搜索帖子" #Search (input)="search(Search.value)" />
         </nz-input-group>
         <ng-template #suffixIconSearch>
           <i nz-icon nzType="search"></i>

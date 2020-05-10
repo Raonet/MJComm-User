@@ -51,6 +51,7 @@ export class ChatComponent implements OnInit {
     this.connectMsg();
     this.chatname = this.routerinfo.snapshot.queryParams.name;
     this.websocket.getChatInfo(this.chatname);
+    this.getMessage();
   }
 
   // 编辑器相关配置设置
@@ -170,5 +171,10 @@ export class ChatComponent implements OnInit {
     const chat = {name: this.chatname, data: [chatdata]};
     this.websocket.sendMessage(chat);
     this.editor.txt.html('');
+  }
+  getMessage() {
+    setInterval(() => {
+      this.websocket.getChatInfo(this.chatname);
+    }, 1000);
   }
 }

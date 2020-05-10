@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'repair', component: RepairComponent, canActivate: [AuthGuard]},
   { path: 'feedback', component: FeedbackComponent, canActivate: [AuthGuard]},
   { path: 'editor', component: EditorComponent, canActivate: [AuthGuard]},
-  { path: 'newdetail', component: NewDetailComponent, canActivate: [AuthGuard]},
+  { path: 'newdetail', component: NewDetailComponent},
   { path: 'forumdetail', component: ForumDetailComponent, canActivate: [AuthGuard]},
   { path: 'chat', component: ChatComponent, canActivate: [AuthGuard]},
   { path: 'feiyan', component: FeiyanComponent}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ForumHttpService } from '../forum-http.service';
+import { utf8Encode } from '@angular/compiler/src/util';
 @Component({
   selector: 'app-forum',
   templateUrl: './forum.component.html',
@@ -8,7 +9,8 @@ import { ForumHttpService } from '../forum-http.service';
 export class ForumComponent implements OnInit {
 
   constructor(private forumService: ForumHttpService) { }
-  data;
+  data = [];
+  searchdata = [];
   ngOnInit(): void {
     this.getForums();
   }
@@ -16,6 +18,19 @@ export class ForumComponent implements OnInit {
     let forum;
     await this.forumService.getForums().then(res => {forum = res; } );
     this.data = forum;
-    console.log(forum);
+    this.searchdata = forum;
+  }
+  async search(value) {
+    if (value === '') {
+      this.getForums();
+      return ;
+    }
+    const searchData = [];
+    for (const index in this.searchdata) {
+      if (this.searchdata[index].title.indexOf(value) !== -1) {
+        searchData.push(this.searchdata[index]);
+      }
+    }
+    this.data = searchData;
   }
 }
