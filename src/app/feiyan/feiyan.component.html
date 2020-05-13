@@ -5,7 +5,7 @@
     <ng-template #item let-item>
       <nz-list-item [nzContent]="item.desc" [nzExtra]="extra">
         <nz-list-item-meta [nzTitle]="nzTitle" [nzDescription]="item.title">
-          <ng-template #nzTitle>来源：{{ item.author }} <div class="authenticity"></div></ng-template>
+          <ng-template #nzTitle>来源：{{ item.author }} <div class="authenticity"></div><div class="faker">{{ item.explain }}</div></ng-template>
         </nz-list-item-meta>
         <ng-template #extra>
           <img width="272" alt="logo" src="{{item.imgsrc}}" />

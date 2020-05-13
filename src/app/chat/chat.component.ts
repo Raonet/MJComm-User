@@ -13,6 +13,7 @@ import { ForumHttpService } from '../forum-http.service';
 })
 export class ChatComponent implements OnInit {
   chatname;
+  myInterval;
   userid = this.cookies.get('userId');
   public sign = 'wang_editor';
 
@@ -52,6 +53,10 @@ export class ChatComponent implements OnInit {
     this.chatname = this.routerinfo.snapshot.queryParams.name;
     this.websocket.getChatInfo(this.chatname);
     this.getMessage();
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.myInterval);
   }
 
   // 编辑器相关配置设置
@@ -173,8 +178,8 @@ export class ChatComponent implements OnInit {
     this.editor.txt.html('');
   }
   getMessage() {
-    setInterval(() => {
+    this.myInterval = setInterval(() => {
       this.websocket.getChatInfo(this.chatname);
-    }, 1000);
+    }, 2000);
   }
 }

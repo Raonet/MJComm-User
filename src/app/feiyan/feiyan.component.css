@@ -11,3 +11,18 @@
   box-shadow: 6px 6px 0px rgb(18, 57, 95);
   margin: 0 0 30px 0;
 }
+.faker {
+  position: absolute;
+  float: left;
+  left: 500px;
+  width: 75px;
+  height: 25px;
+  background-color: red;
+  color: #fff;
+  text-align: center;
+  transform:rotate(7deg);
+-ms-transform:rotate(7deg); 	/* IE 9 */
+-moz-transform:rotate(7deg); 	/* Firefox */
+-webkit-transform:rotate(7deg); /* Safari 和 Chrome */
+-o-transform:rotate(7deg);
+}

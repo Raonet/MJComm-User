@@ -51,6 +51,7 @@ export class WebSocketService {
     this.message.next(data);
   }
   getMessage(): Observable<any> {
+    console.log(this.message.asObservable());
     return this.message.asObservable();
   }
   async getChatInfo(chatname) {

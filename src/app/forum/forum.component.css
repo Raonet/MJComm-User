@@ -4,7 +4,7 @@
 }
 .forum {
   margin: 0 auto;
-  background-color: #fff;
+  background-color: #eee;
   background-repeat: no-repeat;
   background-position: fixed;
   background-size: 100%;
@@ -19,8 +19,8 @@
   text-align: center;
   color: #fff;
   margin: 20px auto 0 auto;
-  background-color: rgb(119, 190, 187);
-  box-shadow:6px 6px 0 rgb(44, 167, 150);
+  background-color: rgb(123, 174, 170);
+  box-shadow:6px 10px 0 rgb(89, 104, 102);
   text-shadow: 2px 2px 1px #666;
 }
 .edit {
